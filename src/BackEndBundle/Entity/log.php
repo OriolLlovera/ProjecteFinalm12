@@ -24,13 +24,6 @@ class log
     /**
      * @var int
      *
-     * @ORM\Column(name="idLog", type="integer", unique=true)
-     */
-    private $idLog;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="idUsuari", type="integer")
      */
     private $idUsuari;
@@ -58,30 +51,6 @@ class log
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idLog
-     *
-     * @param integer $idLog
-     *
-     * @return log
-     */
-    public function setIdLog($idLog)
-    {
-        $this->idLog = $idLog;
-
-        return $this;
-    }
-
-    /**
-     * Get idLog
-     *
-     * @return int
-     */
-    public function getIdLog()
-    {
-        return $this->idLog;
     }
 
     /**

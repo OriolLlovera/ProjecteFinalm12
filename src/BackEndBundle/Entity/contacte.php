@@ -24,13 +24,6 @@ class contacte
     /**
      * @var int
      *
-     * @ORM\Column(name="idcontacte", type="integer")
-     */
-    private $idcontacte;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="idusuari", type="integer")
      */
     private $idusuari;

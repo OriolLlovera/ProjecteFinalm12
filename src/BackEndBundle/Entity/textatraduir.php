@@ -22,13 +22,6 @@ class textatraduir
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idTextatraduir", type="integer", unique=true)
-     */
-    private $idTextatraduir;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="textOriginal", type="string", length=255)
@@ -51,30 +44,6 @@ class textatraduir
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idTextatraduir
-     *
-     * @param integer $idTextatraduir
-     *
-     * @return textatraduir
-     */
-    public function setIdTextatraduir($idTextatraduir)
-    {
-        $this->idTextatraduir = $idTextatraduir;
-
-        return $this;
-    }
-
-    /**
-     * Get idTextatraduir
-     *
-     * @return int
-     */
-    public function getIdTextatraduir()
-    {
-        return $this->idTextatraduir;
     }
 
     /**

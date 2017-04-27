@@ -3,12 +3,12 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Paraula
  *
  * @ORM\Table(name="paraula")
- * @ORM\Entity(repositoryClass="BackEndBundle\Repository\ParaulaRepository")
+ * @ORM\Entity(repositoryClass="BackEndBundle\Repository\paraulaRepository")
  */
 class Paraula
 {
@@ -48,6 +48,15 @@ class Paraula
      * @ORM\Column(name="definicio", type="string", length=255)
      */
     private $definicio;
+
+    /**
+    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="paraula")
+    */
+    protected $traduccioparaula;
+    public function __constructor() {
+        $this->traduccioparaula = new ArrayCollection();
+    }
+
 
 
     /**
@@ -155,5 +164,31 @@ class Paraula
     {
         return $this->definicio;
     }
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set id_paraula
+     *
+     * @param \exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula
+     *
+     * @return id_paraula
+     */
+    public function setIdParaula(\exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula = null)
+    {
+        $this->traduccioparaula = $id_paraula;
+
+        return $this;
+    }
+
+    
+
 }
 

@@ -3,6 +3,7 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * idioma
@@ -22,18 +23,21 @@ class idioma
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idIdioma", type="integer", unique=true)
-     */
-    private $idIdioma;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+
+    /**
+    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="idioma")
+    */
+    protected $Paraula;
+    public function __constructor() {
+        $this->Paraula = new ArrayCollection();
+    }
+
 
 
     /**
@@ -44,30 +48,6 @@ class idioma
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idIdioma
-     *
-     * @param integer $idIdioma
-     *
-     * @return idioma
-     */
-    public function setIdIdioma($idIdioma)
-    {
-        $this->idIdioma = $idIdioma;
-
-        return $this;
-    }
-
-    /**
-     * Get idIdioma
-     *
-     * @return int
-     */
-    public function getIdIdioma()
-    {
-        return $this->idIdioma;
     }
 
     /**
@@ -92,6 +72,48 @@ class idioma
     public function getNom()
     {
         return $this->nom;
+    }
+
+     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Paraula = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add Paraula
+     *
+     * @param \exchangeIt\BackEndBundle\Entity\Paraula $Paraula
+     *
+     * @return idioma
+     */
+    public function addVehicle(\exchangeIt\BackEndBundle\Entity\Paraula $vehicle)
+    {
+        $this->vehicles[] = $vehicle;
+
+        return $this;
+    }
+
+    /**
+     * Remove Paraula
+     *
+     * @param \exchangeIt\BackEndBundle\Entity\Paraula $Paraula
+     */
+    public function removeVehicle(\exchangeIt\BackEndBundle\Entity\Paraula $Paraula)
+    {
+        $this->Paraula->removeElement($Paraula);
+    }
+
+    /**
+     * Get Paraules
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParaules()
+    {
+        return $this->Paraula;
     }
 }
 

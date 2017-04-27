@@ -22,13 +22,6 @@ class catgramatical
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idCatGramatical", type="integer", unique=true)
-     */
-    private $idCatGramatical;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
@@ -44,30 +37,6 @@ class catgramatical
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idCatGramatical
-     *
-     * @param integer $idCatGramatical
-     *
-     * @return catgramatical
-     */
-    public function setIdCatGramatical($idCatGramatical)
-    {
-        $this->idCatGramatical = $idCatGramatical;
-
-        return $this;
-    }
-
-    /**
-     * Get idCatGramatical
-     *
-     * @return int
-     */
-    public function getIdCatGramatical()
-    {
-        return $this->idCatGramatical;
     }
 
     /**

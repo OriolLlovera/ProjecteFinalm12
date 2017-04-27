@@ -1,3 +1,20 @@
-back_end_homepage:
+exchangeit_back_end_homepage:
     path:     /
     defaults: { _controller: BackEndBundle:Default:index }
+
+#LLISTATS
+exchangeit_back_end_llistaCatGramatical:
+    path:     /llistaCatGramatical
+    defaults: { _controller: BackEndBundle:Default:llistaCatGramatical }
+
+exchangeit_back_end_llistaCatFamilia:
+    path:     /llistaCatFamilia
+    defaults: { _controller: BackEndBundle:Default:llistaCatFamilia }
+
+exchangeit_back_end_llistaUsuaris:
+    path:     /llistaUsuaris
+    defaults: { _controller: BackEndBundle:Default:llistaUsuaris }
+
+exchangeit_back_end_llistaIdiomes:
+    path:     /llistaIdioma
+    defaults: { _controller: BackEndBundle:Default:llistaIdioma }

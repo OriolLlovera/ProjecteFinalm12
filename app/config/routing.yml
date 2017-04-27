@@ -1,10 +1,10 @@
 back_end:
     resource: "@BackEndBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /backend
 
 front_end:
     resource: "@FrontEndBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /frontend
 
 app:
     resource: '@AppBundle/Controller/'
