@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2017 a las 17:41:45
+-- Tiempo de generación: 27-04-2017 a las 16:55:56
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 7.0.13
 
@@ -28,9 +28,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `catfamilia` (
   `id` int(11) NOT NULL,
-  `idCatFamilia` int(11) NOT NULL,
   `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `catfamilia`
+--
+
+INSERT INTO `catfamilia` (`id`, `nom`) VALUES
+(1, 'informàtica'),
+(2, 'naturalesa'),
+(3, 'animals');
 
 -- --------------------------------------------------------
 
@@ -40,9 +48,18 @@ CREATE TABLE `catfamilia` (
 
 CREATE TABLE `catgramatical` (
   `id` int(11) NOT NULL,
-  `idCatGramatical` int(11) NOT NULL,
   `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `catgramatical`
+--
+
+INSERT INTO `catgramatical` (`id`, `nom`) VALUES
+(1, 'nom'),
+(2, 'verb'),
+(3, 'adverbi'),
+(4, 'adjectiu');
 
 -- --------------------------------------------------------
 
@@ -52,10 +69,37 @@ CREATE TABLE `catgramatical` (
 
 CREATE TABLE `contacte` (
   `id` int(11) NOT NULL,
-  `idContacte` int(11) NOT NULL,
   `idUsuari` int(11) NOT NULL,
   `idMissatgeria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fos_user`
+--
+
+CREATE TABLE `fos_user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `username_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `confirmation_token` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `fos_user`
+--
+
+INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`) VALUES
+(1, 'sara', 'sara', 'sara@sara.com', 'sara@sara.com', 1, NULL, '$2y$13$uiWsonbDMC6HCaLI9W02C.1jXi9vCKhuggIxj8vmPGJ94cb/mjr2m', '2017-04-27 16:52:42', NULL, NULL, 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -65,9 +109,17 @@ CREATE TABLE `contacte` (
 
 CREATE TABLE `idioma` (
   `id` int(11) NOT NULL,
-  `idIdioma` int(11) NOT NULL,
   `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `idioma`
+--
+
+INSERT INTO `idioma` (`id`, `nom`) VALUES
+(1, 'castellano'),
+(2, 'català'),
+(3, 'english');
 
 -- --------------------------------------------------------
 
@@ -77,7 +129,6 @@ CREATE TABLE `idioma` (
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
-  `idLog` int(11) NOT NULL,
   `idUsuari` int(11) NOT NULL,
   `idFuncionalitat` int(11) NOT NULL,
   `data` date NOT NULL
@@ -91,7 +142,6 @@ CREATE TABLE `log` (
 
 CREATE TABLE `missatgeria` (
   `id` int(11) NOT NULL,
-  `idMissatge` int(11) NOT NULL,
   `idUsuariOrigen` int(11) NOT NULL,
   `idUsuariDesti` int(11) NOT NULL,
   `missatge` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -120,7 +170,6 @@ CREATE TABLE `paraula` (
 
 CREATE TABLE `textatraduir` (
   `id` int(11) NOT NULL,
-  `idTextatraduir` int(11) NOT NULL,
   `textOriginal` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `idiomaOriginal` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -153,29 +202,11 @@ CREATE TABLE `traduccioparaula` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuari`
---
-
-CREATE TABLE `usuari` (
-  `id` int(11) NOT NULL,
-  `dni` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cognom1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cognom2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `correu` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `numTraduccions` int(11) NOT NULL,
-  `rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `valoracio`
 --
 
 CREATE TABLE `valoracio` (
   `id` int(11) NOT NULL,
-  `idValoracio` int(11) NOT NULL,
   `idTraductor` int(11) NOT NULL,
   `puntuacio` int(11) NOT NULL,
   `idUsuariValoracio` int(11) NOT NULL,
@@ -190,15 +221,13 @@ CREATE TABLE `valoracio` (
 -- Indices de la tabla `catfamilia`
 --
 ALTER TABLE `catfamilia`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_795DC0B93414E7CF` (`idCatFamilia`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `catgramatical`
 --
 ALTER TABLE `catgramatical`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_A1A8A8CB2411F735` (`idCatGramatical`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `contacte`
@@ -207,25 +236,31 @@ ALTER TABLE `contacte`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `fos_user`
+--
+ALTER TABLE `fos_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
+  ADD UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`),
+  ADD UNIQUE KEY `UNIQ_957A6479C05FB297` (`confirmation_token`);
+
+--
 -- Indices de la tabla `idioma`
 --
 ALTER TABLE `idioma`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_1DC85E0C7ED9F696` (`idIdioma`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_8F3F68C5AE777542` (`idLog`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `missatgeria`
 --
 ALTER TABLE `missatgeria`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_75A3B5FE97839443` (`idMissatge`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `paraula`
@@ -238,8 +273,7 @@ ALTER TABLE `paraula`
 -- Indices de la tabla `textatraduir`
 --
 ALTER TABLE `textatraduir`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_3F5FBD1061C119E1` (`idTextatraduir`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `texttraduit`
@@ -255,18 +289,10 @@ ALTER TABLE `traduccioparaula`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuari`
---
-ALTER TABLE `usuari`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_68CC94FF7F8F253B` (`dni`);
-
---
 -- Indices de la tabla `valoracio`
 --
 ALTER TABLE `valoracio`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_EF6E6F5D1384440B` (`idValoracio`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -276,22 +302,27 @@ ALTER TABLE `valoracio`
 -- AUTO_INCREMENT de la tabla `catfamilia`
 --
 ALTER TABLE `catfamilia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `catgramatical`
 --
 ALTER TABLE `catgramatical`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `contacte`
 --
 ALTER TABLE `contacte`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `fos_user`
+--
+ALTER TABLE `fos_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT de la tabla `idioma`
 --
 ALTER TABLE `idioma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `log`
 --
@@ -321,11 +352,6 @@ ALTER TABLE `texttraduit`
 -- AUTO_INCREMENT de la tabla `traduccioparaula`
 --
 ALTER TABLE `traduccioparaula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `usuari`
---
-ALTER TABLE `usuari`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `valoracio`
