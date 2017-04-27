@@ -1,3 +1,13 @@
-front_end_homepage:
+exchangeit_front_end_homepage:
     path:     /
     defaults: { _controller: FrontEndBundle:Default:index }
+
+exchangeit_front_end_serveis:
+    path:     /serveis
+    defaults: { _controller: FrontEndBundle:Default:serveis }
+
+exchangeit_front_end_contact:
+    path:     /contacte
+    defaults: { _controller: FrontEndBundle:Default:contacte }
+
+ 
