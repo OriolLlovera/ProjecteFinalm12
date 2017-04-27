@@ -24,13 +24,6 @@ class valoracio
     /**
      * @var int
      *
-     * @ORM\Column(name="idValoracio", type="integer", unique=true)
-     */
-    private $idValoracio;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="idTraductor", type="integer")
      */
     private $idTraductor;
@@ -65,30 +58,6 @@ class valoracio
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idValoracio
-     *
-     * @param integer $idValoracio
-     *
-     * @return valoracio
-     */
-    public function setIdValoracio($idValoracio)
-    {
-        $this->idValoracio = $idValoracio;
-
-        return $this;
-    }
-
-    /**
-     * Get idValoracio
-     *
-     * @return int
-     */
-    public function getIdValoracio()
-    {
-        return $this->idValoracio;
     }
 
     /**

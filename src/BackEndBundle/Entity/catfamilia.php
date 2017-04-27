@@ -22,13 +22,6 @@ class catfamilia
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idCatFamilia", type="integer", unique=true)
-     */
-    private $idCatFamilia;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
@@ -44,30 +37,6 @@ class catfamilia
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idCatFamilia
-     *
-     * @param integer $idCatFamilia
-     *
-     * @return catfamilia
-     */
-    public function setIdCatFamilia($idCatFamilia)
-    {
-        $this->idCatFamilia = $idCatFamilia;
-
-        return $this;
-    }
-
-    /**
-     * Get idCatFamilia
-     *
-     * @return int
-     */
-    public function getIdCatFamilia()
-    {
-        return $this->idCatFamilia;
     }
 
     /**

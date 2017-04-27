@@ -93,5 +93,9 @@ class traduccioparaula
     {
         return $this->idParaula;
     }
+
+
+    
+
 }
 

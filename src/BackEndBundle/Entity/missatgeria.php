@@ -24,13 +24,6 @@ class missatgeria
     /**
      * @var int
      *
-     * @ORM\Column(name="idMissatge", type="integer", unique=true)
-     */
-    private $idMissatge;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="idUsuariOrigen", type="integer")
      */
     private $idUsuariOrigen;
@@ -65,30 +58,6 @@ class missatgeria
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idMissatge
-     *
-     * @param integer $idMissatge
-     *
-     * @return missatgeria
-     */
-    public function setIdMissatge($idMissatge)
-    {
-        $this->idMissatge = $idMissatge;
-
-        return $this;
-    }
-
-    /**
-     * Get idMissatge
-     *
-     * @return int
-     */
-    public function getIdMissatge()
-    {
-        return $this->idMissatge;
     }
 
     /**
