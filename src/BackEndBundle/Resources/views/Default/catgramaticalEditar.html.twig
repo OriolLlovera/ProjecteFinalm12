@@ -1,0 +1,21 @@
+{% extends "BackEndBundle:Default:index.html.twig" %}
+{% block title %}Editar Categoria Gramatical{% endblock %}
+{% block page_content %}
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 col-md-12">
+                <h1>EDITAR CATEGORIA GRAMATICAL</h1>
+            </div>
+            <div class="col-sm-12 col-lg-12 col-md-12">
+                <form method="POST" action="{{ path('exchangeit_back_end_editarcatgramatical', {'id':id}) }}">
+                    <div class="form-group">
+                        <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom" required value="{{nom}}" />
+                        <div class="validation"></div>
+                    </div>
+                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Guarda"></div>
+                </form> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

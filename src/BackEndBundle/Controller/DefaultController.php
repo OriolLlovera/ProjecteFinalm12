@@ -1,7 +1,10 @@
 <?php
 
 namespace BackEndBundle\Controller;
-
+use BackEndBundle\Entity\idioma;
+use BackEndBundle\Entity\catgramatical;
+use BackEndBundle\Entity\catfamilia;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -12,14 +15,14 @@ class DefaultController extends Controller
     }
 
     #LLISTES DADES
-	public function llistaUsuarisAction()
-	{
-	    $llista = $this->getDoctrine()->getRepository('BackEndBundle:usuari')->findAll();
+    public function llistaUsuarisAction()
+    {
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
 
         return $this->render('BackEndBundle:Default:llistaUsuaris.html.twig', array(
             'titol' => 'Llistat usuaris',
-            'usuari' => $llista));
-	}
+            'User' => $llista));
+    }
 
     public function llistaIdiomaAction()
     {
@@ -48,121 +51,216 @@ class DefaultController extends Controller
             'catgramatical' => $llista));
     }
 
-    #EDITAR DADES IDIOMA
+    #AFEGIR DADES IDIOMA
     public function afegirIdiomaAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $nom=$request->request->get('nom');
 
-        $idioma = new vehicles();
-        $idioma->setMatricula($matricula);
+        $idioma = new idioma();
+        $idioma->setNom($nom);
 
-        $vehicle->setPropietaris($propietari);
-
-        $vehicle->getPropietaris($propietari);
-
-        $vehicle->setImatge($imatge);
-        $em->persist($vehicle);
+        $em->persist($idioma);
         $em->flush();
 
-        return $this->forward('tallerreparacionsBackEndBundle:Default:llistaVehicles');
+        return $this->forward('BackEndBundle:Default:llistaIdioma');
     }
 
-    public function formAfegirVehicleAction(Request $request)
+    public function formAfegirIdiomaAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $matricula = "";
-        $marca = "";
-        $model = "";
-        $combustible = "";
+        $nom = "";
 
-        $propietaris = $em->getRepository('tallerreparacionsBackEndBundle:propietaris')->findAll();
-
-        $propietari = "";
-
-        $imatge="https://cdn.imaginarium.es/photo/85117/coche-electrico-de-color-rojo-para-ninos_85117_1.jpg?2017020701";
-        return $this->render('tallerreparacionsBackEndBundle:Default:vehicle.html.twig', array(
-            'matricula' => $matricula,
-            'marca' => $marca,
-            'model' => $model,
-            'combustible' => $combustible,
-
-            'propietaris' => $propietaris,
-
-            'propietari' => $propietari,
-
-            'imatge' => $imatge
+        return $this->render('BackEndBundle:Default:idiomes.html.twig', array(
+            'nom' => $nom,
             )
         );
     }
 
-    /*EDITAR VEHICLE*/
-    public function editarVehicleAction($id, Request $request)
+    #EDITAR DADES IDIOMA
+    public function editarIdiomaAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $vehicle =$em->getRepository('tallerreparacionsBackEndBundle:vehicles')->findOneById($id);
+        $idioma =$em->getRepository('BackEndBundle:idioma')->findOneById($id);
         
-        $matricula=$request->request->get('matricula');
-        $marca=$request->request->get('marca');
-        $model=$request->request->get('model');
-        $combustible=$request->request->get('combustible');
-        $idPropietari=$request->request->get('propietari');
-        $imatge=$request->request->get('imatge');
+        $nom=$request->request->get('nom');
 
-        $propietari = $em->getRepository('tallerreparacionsBackEndBundle:propietaris')->findOneById($idPropietari);
-
-        $vehicle->setMatricula($matricula);
-        $vehicle->setMarca($marca);
-        $vehicle->setModel($model);
-        $vehicle->setCombustible($combustible);
-        $vehicle->setPropietaris($propietari);
-        $vehicle->setImatge($imatge);
-        $em->persist($vehicle);
+        
+        $idioma->setNom($nom);
+        $em->persist($idioma);
         $em->flush();
 
-        return $this->forward('tallerreparacionsBackEndBundle:Default:llistaVehicles');
+        return $this->forward('BackEndBundle:Default:llistaIdioma');
         
     }
 
-    public function formEditarVehicleAction($id, Request $request)
+    public function formEditarIdiomaAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $vehicle =$this->getDoctrine()->getRepository('tallerreparacionsBackEndBundle:vehicles')->findOneById($id);
-        $matricula=$vehicle->getMatricula();
-        $marca=$vehicle->getMarca();
-        $model=$vehicle->getModel();
-        $combustible=$vehicle->getCombustible();
-        $idPropietari=$vehicle->getPropietaris()->getId();
-        $propietaris = $em->getRepository('tallerreparacionsBackEndBundle:propietaris')->findAll();
-        $imatge=$vehicle->getImatge();
+        $idioma =$this->getDoctrine()->getRepository('BackEndBundle:idioma')->findOneById($id);
+        $nom=$idioma->getNom();
 
-        return $this->render('tallerreparacionsBackEndBundle:Default:vehicleEditar.html.twig', array(
+        return $this->render('BackEndBundle:Default:idiomesEditar.html.twig', array(
             'id' => $id,
-            'matricula' => $matricula,
-            'marca' => $marca,
-            'model' => $model,
-            'combustible' => $combustible,
-            'idPropietari' => $idPropietari,
-            'propietaris' => $propietaris,
-            'imatge' => $imatge
+            'nom' => $nom,
             )
         );
         
     } 
 
-    /*ESBORRAR VEHICLE*/
-    public function esborrarVehicleAction($id)
+    #ESBORRAR IDIOMA
+    public function esborrarIdiomaAction($id)
     {
-        $vehicle =$this->getDoctrine()->getRepository('tallerreparacionsBackEndBundle:vehicles')->findOneById($id);
+        $idioma =$this->getDoctrine()->getRepository('BackEndBundle:idioma')->findOneById($id);
         $em = $this->getDoctrine()->getManager();
-        $em->remove($vehicle);
+        $em->remove($idioma);
         $em->flush();
-        return $this->forward('tallerreparacionsBackEndBundle:Default:llistaVehicles');
+        return $this->forward('BackEndBundle:Default:llistaIdioma');
     }
 
+
+    #AFEGIR DADES CAT. GRAMATICAL
+    public function afegirCatGramaticalAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $nom=$request->request->get('nom');
+
+        $catgramatical = new catgramatical();
+        $catgramatical->setNom($nom);
+
+        $em->persist($catgramatical);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaCatGramatical');
+    }
+
+    public function formAfegirCatGramaticalAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $nom = "";
+
+        return $this->render('BackEndBundle:Default:catgramatical.html.twig', array(
+            'nom' => $nom,
+            )
+        );
+    }
+
+    #EDITAR DADES CAT. GRAMATICAL
+    public function editarCatGramaticalAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $catgramatical =$em->getRepository('BackEndBundle:catgramatical')->findOneById($id);
+        
+        $nom=$request->request->get('nom');
+
+        
+        $catgramatical->setNom($nom);
+        $em->persist($catgramatical);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaCatGramatical');
+        
+    }
+
+    public function formEditarCatGramaticalAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $catgramatical =$this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findOneById($id);
+        $nom=$catgramatical->getNom();
+
+        return $this->render('BackEndBundle:Default:catgramaticalEditar.html.twig', array(
+            'id' => $id,
+            'nom' => $nom,
+            )
+        );
+        
+    } 
+
+    #ESBORRAR CAT. GRAMATICAL
+    public function esborrarCatGramaticalAction($id)
+    {
+        $catgramatical =$this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findOneById($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($catgramatical);
+        $em->flush();
+        return $this->forward('BackEndBundle:Default:llistaCatGramatical');
+    }
+
+    #AFEGIR DADES CAT. FAMILIA
+    public function afegirCatFamiliaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $nom=$request->request->get('nom');
+
+        $catfamilia = new catfamilia();
+        $catfamilia->setNom($nom);
+
+        $em->persist($catfamilia);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaCatFamilia');
+    }
+
+    public function formAfegirCatFamiliaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $nom = "";
+
+        return $this->render('BackEndBundle:Default:catfamilia.html.twig', array(
+            'nom' => $nom,
+            )
+        );
+    }
+
+    #EDITAR DADES CAT. FAMILIA
+    public function editarCatFamiliaAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $catfamilia =$em->getRepository('BackEndBundle:catfamilia')->findOneById($id);
+        
+        $nom=$request->request->get('nom');
+
+        
+        $catfamilia->setNom($nom);
+        $em->persist($catfamilia);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaCatFamilia');
+        
+    }
+
+    public function formEditarCatFamiliaAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $catfamilia =$this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findOneById($id);
+        $nom=$catfamilia->getNom();
+
+        return $this->render('BackEndBundle:Default:catfamiliaEditar.html.twig', array(
+            'id' => $id,
+            'nom' => $nom,
+            )
+        );
+        
+    } 
+
+    #ESBORRAR CAT. FAMILIA
+    public function esborrarCatFamiliaAction($id)
+    {
+        $catfamilia =$this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findOneById($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($catfamilia);
+        $em->flush();
+        return $this->forward('BackEndBundle:Default:llistaCatFamilia');
+    }
 
 
 

@@ -1,1 +1,315 @@
-FRONTEND
+{% extends "FrontEndBundle:Default:base.html.twig" %}
+{% block title %}Inici{% endblock %}
+{% block content %}
+	<div class="slider">
+		<div class="container">
+			<div id="about-slider">
+				<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+				  	<ol class="carousel-indicators visible-xs">
+					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-slider" data-slide-to="1"></li>
+					    <li data-target="#carousel-slider" data-slide-to="2"></li>
+				  	</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="{{asset('public/frontend/images/slider_one.jpg')}}" class="img-responsive" alt=""> 
+					   </div>
+					   <div class="item">
+							<img src="{{asset('public/frontend/images/slider_two.jpg')}}" class="img-responsive" alt=""> 
+					   </div> 
+					   <div class="item">
+							<img src="{{asset('public/frontend/images/slider_three.jpg')}}" class="img-responsive" alt=""> 
+					   </div> 
+					</div>
+					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+						<i class="fa fa-angle-left"></i> 
+					</a>
+					<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+						<i class="fa fa-angle-right"></i> 
+					</a>
+				</div> <!--/#carousel-slider-->
+			</div><!--/#about-slider-->
+		</div>
+	</div>
+
+	 <section id="feature" >
+        <div class="container">
+           <div class="center wow fadeInDown">
+                <h2>Les nostres especialitats</h2>
+                <p class="lead">Portem treballant en el sector de l'automòbil des de l'any 1975.</p>
+            </div>
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-tint"></i>
+                            <h2>Neteja de vehicles</h2>
+                            <h3>Servei de neteja complet</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-money"></i>
+                            <h2>Presupost a mesura</h2>
+                            <h3>Realitzem un presupost que s'adapti a tu</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-wrench"></i>
+                            <h2>Revisions pre ITV</h2>
+                            <h3>Revisem el teu cotxe per deixar-lo perfecte</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-paint-brush"></i>
+                            <h2>Pintura </h2>
+                            <h3>Disposem de taller de pintura</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-cogs"></i>
+                            <h2>Disseny Personalitzat</h2>
+                            <h3>Dissenys únics per a tu</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-heart"></i>
+                            <h2>Reparacions dedicades</h2>
+                            <h3>Reparem el teu vehicle en un moment</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                </div><!--/.services-->
+            </div><!--/.row-->    
+        </div><!--/.container-->
+    </section><!--/#feature-->
+	<section id="recent-works">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Reparacions recents</h2>
+                
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item1.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Peugeot GT7</a> </h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item1.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item2.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Audi Q7</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item2.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item3.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Toyota T1</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item3.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item4.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Volkswagen Scirocco </a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item4.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item5.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Honda civic Cv3</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item5.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item6.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Mini Cooper One</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item6.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item7.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">BMW Serie 1</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item7.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item8.png')}}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Range Rover Evoque</a></h3>
+                                <p>Restauració de carrosseria i pintura</p>
+                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item8.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#recent-works-->	
+	<section id="middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 wow fadeInDown">
+                    <div class="skill">
+                        <h2>Les nostres especialitats</h2>                        
+                        <div class="progress-wrap">
+                            <h3>Revisions pre ITV</h3>
+                            <div class="progress">
+                              <div class="progress-bar  color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                                <span class="bar-width">85%</span>
+                              </div>
+
+                            </div>
+                        </div>
+                        <div class="progress-wrap">
+                            <h3>Pintura</h3>
+                            <div class="progress">
+                              <div class="progress-bar color2" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+                               <span class="bar-width">95%</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="progress-wrap">
+                            <h3>Carrosseria</h3>
+                            <div class="progress">
+                              <div class="progress-bar color3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="bar-width">80%</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="progress-wrap">
+                            <h3>Restauració de vehicles antics</h3>
+                            <div class="progress">
+                              <div class="progress-bar color4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="bar-width">90%</span>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.col-sm-6-->
+                <div class="col-sm-6 wow fadeInDown">
+                    <div class="accordion">
+                        <h2>Per què escollir-nos?</h2>
+                        <div class="panel-group" id="accordion1">
+                          <div class="panel panel-default">
+                            <div class="panel-heading active">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                                  Especialistes en el sector 
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseOne1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="media accordion-inner">
+                                        <div class="pull-left">
+                                            <img class="img-responsive" src="{{asset('public/frontend/images/accordion1.png')}}">
+                                        </div>
+                                        <div class="media-body">
+                                             <h4>Taller reparacions</h4>
+                                             <p>Treballant en el sector des de 1975</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                                  Innovació en disseny
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseTwo1" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                Estem al dia de els millors dissenys i estils per el teu vehicle.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                                  Noves tecnologies
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseThree1" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                Disposem de maquinari d'ultima tecnologia per a una reparació al més alt nivell.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                                 Servei 24h
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseFour1" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                Estem a la teva disposició les 24 hores del dia.
+                              </div>
+                            </div>
+                          </div>
+                        </div><!--/#accordion1-->
+                    </div>
+                </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#middle-->
+{% endblock %}

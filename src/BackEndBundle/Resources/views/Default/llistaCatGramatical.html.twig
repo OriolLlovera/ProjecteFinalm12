@@ -12,15 +12,14 @@
             {% for category in catgramatical %}
                 <tr>
                     <th>{{ category.nom|upper }}</th>
-                    
                     <td>
                         <p data-placement="top" data-toggle="tooltip" title="Editar">
-                            <a href="" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="{{ path('exchangeit_back_end_form_editarcatgramatical', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
                         </p>
                     </td>
                     <td>
                         <p data-placement="top" data-toggle="tooltip" title="Eliminar">
-                            <a href="" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="{{ path('exchangeit_back_end_esborrarcatgramatical', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
                         </p>
                     </td>
                 </tr>
@@ -29,7 +28,7 @@
     </table>
     <div class="row">
         <div class="col-sm-12 col-lg-12 col-md-12">
-            <a href="" class="btn btn-info" role="button">Afegir Categoria Gramatical</a>
+            <a href="{{ path('exchangeit_back_end_form_afegircatgramatical') }}" class="btn btn-info" role="button">Afegir Categoria Gramatical</a>
         </div>
     </div>
 {% endblock %}
