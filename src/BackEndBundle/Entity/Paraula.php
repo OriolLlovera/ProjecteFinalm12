@@ -31,7 +31,8 @@ class Paraula
     /**
      * @var string
      *
-     * @ORM\Column(name="categoriaGramatical", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="catgramatical",inversedBy="paraula")
+     * @ORM\JoinColumn(name="categoriaGramatical", referencedColumnName="id")
      */
     private $categoriaGramatical;
 
@@ -48,12 +49,6 @@ class Paraula
      * @ORM\Column(name="definicio", type="string", length=255)
      */
     private $definicio;
-
-    /**
-    * @ORM\ManyToOne(targetEntity="catgramatical", inversedBy="paraula")
-    * @ORM\JoinColumn(name="categoriagramatical_id", referencedColumnName="id")
-    */
-    protected $catgramatical;
 
 
     /**
@@ -86,7 +81,7 @@ class Paraula
      * @return string
      */
     public function getParaula()
-    {
+    {   
         return $this->paraula;
     }
 
@@ -164,27 +159,27 @@ class Paraula
 
 
     /**
-     * Set catgramatical
+     * Set categoriaGramatical
      *
-     * @param \BackEndBundle\Entity\propietaris $catgramatical
+     * @param \BackEndBundle\Entity\catgramatical $categoriaGramatical
      *
      * @return paraula
      */
-    public function setCatgramatical(\BackEndBundle\Entity\catgramatical $catgramatical = null)
+    public function setCatgramatical(\BackEndBundle\Entity\catgramatical $categoriaGramatical = null)
     {
-        $this->catgramatical = $catgramatical;
+        $this->categoriaGramatical = $categoriaGramatical;
 
         return $this;
     }
 
     /**
-     * Get catgramatical
+     * Get categoriaGramatical
      *
      * @return \BackEndBundle\Entity\catgramatical
      */
     public function getCatgramatical()
     {
-        return $this->catgramatical;
+        return $this->categoriaGramatical;
     }
 
     

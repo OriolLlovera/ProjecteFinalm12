@@ -28,15 +28,13 @@ class catgramatical
      */
     private $nom;
 
-
     /**
-    * @ORM\OneToMany(targetEntity="paraula", mappedBy="catgramatical")
+    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="catgramatical")
     */
     protected $paraula;
     public function __constructor() {
         $this->paraula = new ArrayCollection();
-
-
+    }
 
     /**
      * Get id
@@ -113,6 +111,8 @@ class catgramatical
     {
         return $this->paraula;
     }
+
+    
 
 }
 
