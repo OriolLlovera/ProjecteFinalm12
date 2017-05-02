@@ -16,6 +16,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ProfileFormType extends AbstractType
 {
@@ -41,7 +43,7 @@ class ProfileFormType extends AbstractType
 
         $constraintsOptions = array(
             'message' => 'fos_user.current_password.invalid',
-        );
+            );
 
         if (!empty($options['validation_groups'])) {
             $constraintsOptions['groups'] = array(reset($options['validation_groups']));
@@ -52,7 +54,8 @@ class ProfileFormType extends AbstractType
             'translation_domain' => 'FOSUserBundle',
             'mapped' => false,
             'constraints' => new UserPassword($constraintsOptions),
-        ));
+            ));
+         //$this->addRolestoForm($builder);
     }
 
     /**
@@ -65,7 +68,7 @@ class ProfileFormType extends AbstractType
             'csrf_token_id' => 'profile',
             // BC for SF < 2.8
             'intention' => 'profile',
-        ));
+            ));
     }
 
     // BC for SF < 3.0
@@ -94,8 +97,23 @@ class ProfileFormType extends AbstractType
     protected function buildUserForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+        ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+        ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+        ->add('lastlogin', DateType::class, array('label' => 'form.lastlogin', 'translation_domain' => 'FOSUserBundle'))
         ;
     }
+
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
+    public function addRolestoForm(FormBuilderInterface $builder){
+        return $builder->add('roles', ChoiceType::class,array('label'=>'Rol',
+            'attr'=>['class' => 'selectRol'],
+            'required'=>true, 'choices'=> array("Traductor" =>'ROLE_TRANS',
+                "Administrador" =>'ROLE_ADMIN', "Usuari"=>'ROLE_USER')));
+    }
+
+
+
+
 }

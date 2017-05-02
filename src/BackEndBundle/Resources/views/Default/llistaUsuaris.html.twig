@@ -1,15 +1,13 @@
-{% extends "BackEndBundle:Default:index.html.twig " %}
+{# {% extends "BackEndBundle:Default:index.html.twig " %} #}
 {% block title %}Llista usuaris{% endblock %}
 {% block page_content %}
     <h4>{{ titol }}</h4>
     <table id="mytable" class="table table-bordred table-striped">
         <thead>
-            <th>DNI</th>
-            <th>Nom</th>
-            <th>1r cognom</th>
-            <th>2n cognom</th>
+            <th>ID</th>
+            <th>Nom</th>            
             <th>Correu</th>
-            <th>Nº traduccions</th>
+            <th>Ultim Login</th>           
             <th>Rol</th>
             <th>Editar</th>
             <th>Eliminar</th>
@@ -17,22 +15,31 @@
         <tbody>
             {% for category in usuari %}
                 <tr>
-                    <th>{{ category.dni|upper }}</th>
-                    <td>{{ category.nom }}</td>
-                    <td>{{ category.cognom1 }}</td>
-                    <td>{{ category.cognom2 }}</td>
-                    <td>{{ category.correu }}</td>
-                    <td>{{ category.numTraduccions }}</td>
-                    <td>{{ category.rol }}</td>
-                    
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.username }}</td>
+                    <td>{{ category.email }}</td>
+                    <td>{{ category.lastLogin|date("d/m/Y") }}</td>
+                    {% for rol in category.roles %}
+                        {% if rol == "ROLE_USER" %}
+                            <td>Usuari</td>
+                        {% endif %}
+                        {% if rol == "ROLE_ADMIN" %}
+                            <td>Administrador</td>
+                        {% endif %}
+                        {% if rol == "ROLE_TRANS" %}
+                            <td>Traductor</td>
+                        {% endif %}                      
+                    {% endfor %}
+
                     <td>
                         <p data-placement="top" data-toggle="tooltip" title="Editar">
-                            <a href="" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="{{path('exchangeit_back_end_usuari_edit',{ 'id': category.id }) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
                         </p>
                     </td>
                     <td>
                         <p data-placement="top" data-toggle="tooltip" title="Eliminar">
-                            <a href="" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                           <a  href="{{path('exchangeit_back_end_usuari_delete',{ 'id': category.id }) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+
                         </p>
                     </td>
                 </tr>

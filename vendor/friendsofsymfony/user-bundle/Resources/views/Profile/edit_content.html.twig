@@ -1,8 +1,35 @@
-{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}Editar Perfil Usuari{% endblock %}
+{% block page_content %}
+<div class="container" style="padding-top: 60px;">
+	<h1 class="page-header">Edita el Perfil</h1>
+	<div class="row">
+		<!-- edit form column -->
+		<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+			<div class="alert alert-info alert-dismissable">
+				<a class="panel-close close" data-dismiss="alert">×</a> 
+				<i class="fa fa-coffee"></i>
+				This is an <strong>.alert</strong>. Use this to show important messages to the user.
+			</div>
+			<h3>Personal info</h3>
+			 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>
         <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
     </div>
-{{ form_end(form) }}
+    {{ form_end(form) }} 
+		</div>
+	</div>
+</div>
+
+{% endblock page_content %}
+
+{# {% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+    {{ form_end(form) }} #}

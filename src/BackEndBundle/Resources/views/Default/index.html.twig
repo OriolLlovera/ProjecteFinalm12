@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Administració{% endblock %}</title>
-        {% block stylesheets %}
-            <link href="{{ asset('public/backend/css/bootstrap.min.css') }}" rel="stylesheet">
-            <link href="{{ asset('public/backend/css/shop-homepage.css') }}" rel="stylesheet">
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            {% block navigation %}
-                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="{{ path('exchangeit_back_end_homepage') }}">BACKEND</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="{{path('exchangeit_back_end_llistaUsuaris')}}">Llista usuaris</a>
-                                </li>
-                                <li>
-                                    <a href="{{path('exchangeit_back_end_llistaIdiomes')}}">Llista idiomes</a>
-		                        </li>
-                                <li>
-                                	<a href="{{path('exchangeit_back_end_llistaCatGramatical')}}">Llista categories gramaticals</a><br>
-                                </li>
-                                <li>
-                                	<a href="{{path('exchangeit_back_end_llistaCatFamilia')}}">Llista categories families</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            {% endblock %}
-            {% block page_content %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Administració{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('public/backend/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('public/backend/css/shop-homepage.css') }}" rel="stylesheet">
+        {#  <link href="{{ asset('public/backend/css/usuaris.css') }}" rel="stylesheet"> #}
+        <link href="{{ asset('public/backend/css/login.css') }}" rel="stylesheet">
+         <link href="{{ asset('public/backend/css/estils.css') }}" rel="stylesheet"> 
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        {% block navigation %}
+            <nav class="navbar navbar-inverse navbar-static" role="navigation">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                        	<h4>BACKEND - Manteniment d'idiomes.</h4>
-                        	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
-                        </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ path('exchangeit_back_end_homepage') }}">BACKEND</a>
                     </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="{{path('exchangeit_back_end_llistaUsuaris')}}">Llista usuaris</a>
+                            </li>
+                            <li>
+                                <a href="{{path('exchangeit_back_end_llistaIdiomes')}}">Llista idiomes</a>
+                            </li>
+                            <li>
+                               <a href="{{path('exchangeit_back_end_llistaCatGramatical')}}">Llista categories gramaticals</a><br>
+                           </li>
+                           <li>
+                               <a href="{{path('exchangeit_back_end_llistaCatFamilia')}}">Llista categories families</a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </nav>
+       {% endblock %}
+       {% block page_content %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                   <h4>BACKEND - Manteniment d'idiomes.</h4>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+               </div>
+           </div>
+       </div>
+   {% endblock %}
+   <div class="container-fluid">
+
+    <!-- Footer -->
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2><img class="logo" src="view/images/logo.png"></h2>
                 </div>
-            {% endblock %}
-            <div class="container">
-                <hr>
-                <footer>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>Copyright &copy; EchangeIt 2017</p>
-                        </div>
+                <div class="col-sm-2">
+                    <h5>Comença</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Registra't</a></li>
+                        <li><a href="#">Noticies</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Sobre nosaltres</h5>
+                    <ul>
+                        <li><a href="#">Informacio de l'empresa</a></li>
+                        <li><a href="#">Contacta</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Suport</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Politica de privadesa</a></li>
+                        <li><a href="#">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <div class="social-networks">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
                     </div>
-                </footer>
+                    <a class="btn btn-default" href="?ctl=contact">Contacta</a>
+                </div>
             </div>
-        {% endblock %}
-        {% block javascripts %}
-            <script src="{{ asset('js/jquery.js') }}"></script>
-            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        {% endblock %}
-    </body>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2017 Copyright ExchangeIt </p>
+        </div>
+    </footer>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</body>
 </html>
 
 
