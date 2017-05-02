@@ -3,7 +3,7 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Paraula
  *
@@ -50,13 +50,10 @@ class Paraula
     private $definicio;
 
     /**
-    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="paraula")
+    * @ORM\ManyToOne(targetEntity="catgramatical", inversedBy="paraula")
+    * @ORM\JoinColumn(name="categoriagramatical_id", referencedColumnName="id")
     */
-    protected $traduccioparaula;
-    public function __constructor() {
-        $this->traduccioparaula = new ArrayCollection();
-    }
-
+    protected $catgramatical;
 
 
     /**
@@ -74,7 +71,7 @@ class Paraula
      *
      * @param string $paraula
      *
-     * @return Paraula
+     * @return paraula
      */
     public function setParaula($paraula)
     {
@@ -167,25 +164,27 @@ class Paraula
 
 
     /**
-     * Constructor
+     * Set catgramatical
+     *
+     * @param \BackEndBundle\Entity\propietaris $catgramatical
+     *
+     * @return paraula
      */
-    public function __construct()
+    public function setCatgramatical(\BackEndBundle\Entity\catgramatical $catgramatical = null)
     {
-        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->catgramatical = $catgramatical;
+
+        return $this;
     }
 
     /**
-     * Set id_paraula
+     * Get catgramatical
      *
-     * @param \exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula
-     *
-     * @return id_paraula
+     * @return \BackEndBundle\Entity\catgramatical
      */
-    public function setIdParaula(\exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula = null)
+    public function getCatgramatical()
     {
-        $this->traduccioparaula = $id_paraula;
-
-        return $this;
+        return $this->catgramatical;
     }
 
     
