@@ -11,11 +11,14 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                    <img alt="" src="{{user.image}}" width="50px" height="50px">
                 </div>
                 <div class="info">
                     <div class="title">
-                        <p><strong>{{ user.username }}</strong></p>
+                        <p><strong>{{ user.username }} {{user.cognom}}</strong></p>
+                    </div>
+                    <div class="title">
+                        <p>{{ user.dni }}</p>
                     </div>
                     <div class="desc">{{ user.email }}</div>  
                     <div class="desc">Ultima connexio:{{ user.lastLogin|date("d/m/Y") }}</div>
@@ -24,8 +27,7 @@
                         <div class="desc">Rol : Usuari</div> 
                     {% endif %}
                     
-                 {% endfor %}
-                                                       
+                 {% endfor %}                        
                 </div>
                 <div class="bottom">                    
                     <a class="btn btn-danger" href="{{path('exchangeit_back_end_usuari_edit',{ 'id': user.id }) }}">Editar</a> 

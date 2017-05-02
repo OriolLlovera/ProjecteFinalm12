@@ -98,11 +98,11 @@ class ProfileController extends Controller
 
             return $response;
         }
-        //var_dump($user); exit();
+        // var_dump($user); exit();
         return $this->render('@FOSUser/Profile/edit.html.twig', array(
-            'form' => $form->createView(),            
-            'array' => $user
-
+            'array' => $user,
+            'form' => $form->createView(),
+            'id' =>$id   
         ));
     }
     // public function editAction(Request $request)
