@@ -50,7 +50,7 @@ class ProfileFormType extends AbstractType
         }
 
         $builder->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
-            'label' => 'form.current_password',
+            'label' => 'form.current_password','attr'=>['class' => 'form-control'],
             'translation_domain' => 'FOSUserBundle',
             'mapped' => false,
             'constraints' => new UserPassword($constraintsOptions),
@@ -97,10 +97,15 @@ class ProfileFormType extends AbstractType
     protected function buildUserForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-        ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-        ->add('lastlogin', DateType::class, array('label' => 'form.lastlogin', 'translation_domain' => 'FOSUserBundle'))
+        ->add('username', null, array('label' => 'form.username','attr'=>['class' => 'form-control'], 'translation_domain' => 'FOSUserBundle'))
+        ->add('cognom', null, array('label' => 'form.cognom', 'attr'=>['class' => 'form-control'],  'translation_domain' => 'FOSUserBundle'))
+        ->add('dni', null, array('label' => 'form.dni', 'attr'=>['class' => 'form-control'],  'translation_domain' => 'FOSUserBundle'))
+        ->add('image', null, array('label' => 'form.image','attr'=>['class' => 'form-control'], 'translation_domain' => 'FOSUserBundle'))
+        ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'attr'=>['class' => 'form-control'],'translation_domain' => 'FOSUserBundle'))
+       
+        /*->add('roles', null, array('label' => 'form.roles', 'translation_domain' => 'FOSUserBundle'))*/
         ;
+
     }
 
     /**

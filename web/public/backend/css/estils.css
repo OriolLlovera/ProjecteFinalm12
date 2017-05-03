@@ -387,3 +387,9 @@
     padding: 0 20px;
     margin-bottom: 17px;
 }
+
+/*Estils login navbar*/
+.colorlletranav{
+    color: white !important;
+    font-weight: bold;
+}
