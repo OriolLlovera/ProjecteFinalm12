@@ -3,7 +3,7 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * idioma
  *
@@ -27,6 +27,15 @@ class idioma
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+
+    /**
+    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="idioma")
+    */
+    protected $traduccioparaula;
+    public function __constructor() {
+        $this->traduccioparaula = new ArrayCollection();
+    }
 
 
     /**
@@ -62,6 +71,49 @@ class idioma
     {
         return $this->nom;
     }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add traduccioparaula
+     *
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     *
+     * @return traduccioparaula
+     */
+    public function addTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    {
+        $this->traduccioparaula[] = $traduccioparaula;
+
+        return $this;
+    }
+
+    /**
+     * Remove traduccioparaula
+     *
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     */
+    public function removeTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    {
+        $this->traduccioparaula->removeElement($traduccioparaula);
+    }
+
+    /**
+     * Get traduccioparaula
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTraduccioparaula()
+    {
+        return $this->traduccioparaula;
+    }
+
 
 }
 

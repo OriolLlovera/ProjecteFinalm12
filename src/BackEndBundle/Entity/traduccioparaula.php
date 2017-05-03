@@ -24,14 +24,16 @@ class traduccioparaula
     /**
      * @var int
      *
-     * @ORM\Column(name="idIdioma", type="integer")
+     * @ORM\ManyToOne(targetEntity="idioma",inversedBy="traduccioparaula")
+     * @ORM\JoinColumn(name="idIdioma", referencedColumnName="id")
      */
     private $idIdioma;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="idParaula", type="integer")
+     * @ORM\ManyToOne(targetEntity="Paraula",inversedBy="traduccioparaula")
+     * @ORM\JoinColumn(name="idParaula", referencedColumnName="id")
      */
     private $idParaula;
 
@@ -94,8 +96,29 @@ class traduccioparaula
         return $this->idParaula;
     }
 
+    /**
+     * Set traduccioparaula
+     *
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     *
+     * @return paraula
+     */
+    public function setTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula = null)
+    {
+        $this->traduccioparaula = $traduccioparaula;
 
-    
+        return $this;
+    }
+
+    /**
+     * Get traduccioparaula
+     *
+     * @return \BackEndBundle\Entity\traduccioparaula
+     */
+    public function getTraduccioparaula()
+    {
+        return $this->traduccioparaula;
+    }
 
 }
 
