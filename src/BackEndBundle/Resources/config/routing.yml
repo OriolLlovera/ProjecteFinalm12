@@ -19,6 +19,10 @@ exchangeit_back_end_llistaIdioma:
     path:     /llistaIdioma
     defaults: { _controller: BackEndBundle:Default:llistaIdioma }
 
+exchangeit_back_end_llistaParaula:
+    path:     /llistaParaula
+    defaults: { _controller: BackEndBundle:Default:llistaParaula }
+
 #---------------------------IDIOMA----------------------------
 
 #AFEGIR IDIOMA
@@ -93,3 +97,29 @@ exchangeit_back_end_editarcatfamilia:
 exchangeit_back_end_esborrarcatfamilia:
     path:     /esborrar-catfamilia/{id}
     defaults: { _controller: BackEndBundle:Default:esborrarCatFamilia }
+
+#---------------------------PARAULA--------------------------------
+
+#AFEGIR PARAULA
+exchangeit_back_end_form_afegirparaula:
+        path:     /afegir-paraula
+        defaults: { _controller: BackEndBundle:Default:formAfegirParaula }
+
+exchangeit_back_end_afegirparaula:
+    path:     /crear-paraula
+    defaults: { _controller: BackEndBundle:Default:afegirParaula }
+
+#EDITAR PARAULA
+exchangeit_back_end_form_editarparaula:
+        path:     /editar-paraula/{id}
+        defaults: { _controller: BackEndBundle:Default:formEditarParaula }
+
+exchangeit_back_end_editarparaula:
+    path:     /paraula-editat/{id}
+    defaults: { _controller: BackEndBundle:Default:editarParaula }
+
+#ESBORRAR PARAULA
+exchangeit_back_end_esborrarparaula:
+    path:     /esborrar-paraula/{id}
+    defaults: { _controller: BackEndBundle:Default:esborrarParaula }
+

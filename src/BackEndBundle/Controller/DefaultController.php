@@ -4,6 +4,7 @@ namespace BackEndBundle\Controller;
 use BackEndBundle\Entity\idioma;
 use BackEndBundle\Entity\catgramatical;
 use BackEndBundle\Entity\catfamilia;
+use BackEndBundle\Entity\Paraula;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -15,7 +16,7 @@ class DefaultController extends Controller
     }
 
     #LLISTES DADES
-    public function llistaUsuarisAction()
+    public function llistaUsuarisAction() 
     {
         $llista = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
 
@@ -49,6 +50,15 @@ class DefaultController extends Controller
         return $this->render('BackEndBundle:Default:llistaCatGramatical.html.twig', array(
             'titol' => 'Llistat Categories Gramaticals',
             'catgramatical' => $llista));
+    }
+
+    public function llistaParaulaAction()
+    {
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findAll();
+
+        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
+            'titol' => 'Llistat Paraules',
+            'paraula' => $llista));
     }
 
     #AFEGIR DADES IDIOMA
@@ -263,5 +273,122 @@ class DefaultController extends Controller
     }
 
 
+    #AFEGIR PARAULA
+    public function afegirParaulaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $paraula=$request->request->get('paraula');
+
+        $idCategoriaGramatical=$request->request->get('categoriagramatical');
+        $categoriagramatical = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaGramatical);
+        $idCategoriaFamilia=$request->request->get('categoriafamilia');
+        $categoriafamilia = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaFamilia);
+
+        $definicio=$request->request->get('definicio');
+
+        $Paraula = new Paraula();
+        $Paraula->setParaula($paraula);
+
+        $Paraula->setCatgramatical($categoriagramatical);
+        $Paraula->getCatgramatical($categoriagramatical);
+        $Paraula->setCatfamilia($categoriafamilia);
+        $Paraula->getCatfamilia($categoriafamilia);
+
+        $Paraula->setDefinicio($definicio);
+
+        $em->persist($Paraula);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaParaula');
+    }
+
+    public function formAfegirParaulaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $paraula = "";
+        
+        $catgramatical = $em->getRepository('BackEndBundle:catgramatical')->findAll();
+        $categoriagramatical = "";
+        $catfamilia = $em->getRepository('BackEndBundle:catfamilia')->findAll();
+        $categoriafamilia = "";
+
+        $definicio="";
+
+    
+        return $this->render('BackEndBundle:Default:paraula.html.twig', array(
+            'paraula' => $paraula,
+
+            'catgramatical' => $catgramatical,
+            'categoriagramatical' => $categoriagramatical,
+
+            'catfamilia' => $catfamilia,
+            'categoriafamilia' => $categoriafamilia,
+
+            'definicio' => $definicio
+            )
+        );
+    }
+
+    #EDITAR PARAULA
+    public function editarParaulaAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Paraula =$em->getRepository('BackEndBundle:Paraula')->findOneById($id);
+        
+        $paraula=$request->request->get('paraula');
+        $idCategoriaGramatical=$request->request->get('categoriagramatical');
+        $idCategoriaFamilia=$request->request->get('categoriafamilia');
+        $definicio=$request->request->get('definicio');        
+        $categoriagramatical = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaGramatical);
+        $categoriafamilia = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaFamilia);
+
+        $Paraula->setParaula($paraula);
+        $Paraula->setCatgramatical($categoriagramatical);
+        $Paraula->setCatfamilia($categoriafamilia);
+        $Paraula->setDefinicio($definicio);
+
+        $em->persist($Paraula);
+        $em->flush();
+
+        return $this->forward('BackEndBundle:Default:llistaParaula');
+        
+    }
+
+    public function formEditarParaulaAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Paraula =$this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findOneById($id);
+        $paraula=$Paraula->getParaula();
+        $idCategoriaGramatical=$Paraula->getCatgramatical()->getId();
+        $categoriagramatical = $em->getRepository('BackEndBundle:catgramatical')->findAll();
+        $idCategoriaFamilia=$Paraula->getCatfamilia()->getId();
+        $categoriafamilia = $em->getRepository('BackEndBundle:catfamilia')->findAll();
+        $definicio=$Paraula->getDefinicio();
+
+        return $this->render('BackEndBundle:Default:paraulaEditar.html.twig', array(
+            'id' => $id,
+            'paraula' => $paraula,
+            'idCategoriaGramatical' => $idCategoriaGramatical,
+            'categoriagramatical' => $categoriagramatical,
+            'idCategoriaFamilia' => $idCategoriaFamilia,
+            'categoriafamilia' => $categoriafamilia,
+            'definicio' => $definicio
+            )
+        );
+        
+    } 
+
+    #ESBORRAR PARAULA
+    public function esborrarParaulaAction($id)
+    {
+        $Paraula =$this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findOneById($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($Paraula);
+        $em->flush();
+        return $this->forward('BackEndBundle:Default:llistaParaula');
+    }
 
 }
