@@ -23,9 +23,13 @@
                     <div class="desc">{{ user.email }}</div>  
                     <div class="desc">Ultima connexio:{{ user.lastLogin|date("d/m/Y") }}</div>
                  {% for rol in user.roles %}
-                    {% if rol == "ROLE_USER" %}
-                        <div class="desc">Rol : Usuari</div> 
-                    {% endif %}
+                    {% if rol == "ROLE_ADMIN" %}
+                        <div class="desc">Rol : Administrador</div> 
+                    {% elseif rol == "ROLE_TRANS" %}                   
+                        <div class="desc">Rol : Traductor</div> 
+                    {% else %}
+                         <div class="desc">Rol : Usuari</div> 
+                    {% endif %}    
                     
                  {% endfor %}                        
                 </div>
