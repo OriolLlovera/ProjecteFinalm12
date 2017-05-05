@@ -289,10 +289,10 @@ class DefaultController extends Controller
         $Paraula = new Paraula();
         $Paraula->setParaula($paraula);
 
-        $Paraula->setCatgramatical($categoriagramatical);
-        $Paraula->getCatgramatical($categoriagramatical);
-        $Paraula->setCatfamilia($categoriafamilia);
-        $Paraula->getCatfamilia($categoriafamilia);
+        $Paraula->setCatgramatical($categoriaGramatical);
+        $Paraula->getCatgramatical($categoriaGramatical);
+        $Paraula->setCatfamilia($categoriaFamilia);
+        $Paraula->getCatfamilia($categoriaFamilia);
 
         $Paraula->setDefinicio($definicio);
 
@@ -320,10 +320,10 @@ class DefaultController extends Controller
             'paraula' => $paraula,
 
             'catgramatical' => $catgramatical,
-            'categoriagramatical' => $categoriagramatical,
+            'categoriagramatical' => $categoriaGramatical,
 
             'catfamilia' => $catfamilia,
-            'categoriafamilia' => $categoriafamilia,
+            'categoriafamilia' => $categoriaFamilia,
 
             'definicio' => $definicio
             )
