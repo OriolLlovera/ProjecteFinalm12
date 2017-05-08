@@ -11,10 +11,37 @@ class DefaultController extends Controller
         return $this->render('BackEndBundle:Default:index.html.twig');
     }
 
+    #ESBORRAR USUARI
+    public function deleteAction($id){
+        $usuari = $this->getDoctrine()->getRepository('BackEndBundle:User')->findOneById($id);
+        echo $usuari;
+        if ($usuari != null) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($usuari);
+            $em->flush();
+        $this->get('session')->getFlashbag()->add(
+                'notice',array (
+                    'type' =>'success',
+                    'msg' => 'S\'ha eliminat l\'usuari'
+                    ));
+        }else{
+            $this->get('session')->getFlashbag()->add(
+                'notice',array (
+                    'type' =>'success',
+                    'msg' => 'No s\'ha eliminat l\'usuari'
+                    ));
+        }
+        $arrayUsuari = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
+        return $this->render('BackEndBundle:Default:llistaUsuaris.html.twig',array(
+            'array'=>$arrayUsuari
+            ));
+    }
+
+
     #LLISTES DADES
 	public function llistaUsuarisAction()
 	{
-	    $llista = $this->getDoctrine()->getRepository('BackEndBundle:usuari')->findAll();
+	    $llista = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
 
         return $this->render('BackEndBundle:Default:llistaUsuaris.html.twig', array(
             'titol' => 'Llistat usuaris',

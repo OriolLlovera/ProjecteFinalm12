@@ -67,7 +67,7 @@ layout:
     logout: 'Tanca la sessió'
     login: Entra
     register: Registrar-se
-    logged_in_as: 'Heu iniciat sessió com a %username%'
+    logged_in_as: '%username%'
 form:
     group_name: 'Nom del grup'
     username: 'Nom d''usuari'
@@ -77,3 +77,6 @@ form:
     password_confirmation: Verificació
     new_password: 'Nova contrasenya'
     new_password_confirmation: Verificació
+    dni: DNI
+    image: Imatge
+    cognom: Cognom

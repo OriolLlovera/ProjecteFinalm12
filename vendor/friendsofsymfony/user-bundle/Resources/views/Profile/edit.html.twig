@@ -1,5 +1,7 @@
-{% extends "@FOSUser/layout.html.twig" %}
-
+{% extends "BackEndBundle:Default:index.html.twig " %}
+{% block title %}Editar Perfil Usuari{% endblock %}
+{% block page_content %}
 {% block fos_user_content %}
 {% include "@FOSUser/Profile/edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% endblock %}
+{% endblock %}

@@ -2,6 +2,19 @@ exchangeit_back_end_homepage:
     path:     /
     defaults: { _controller: BackEndBundle:Default:index }
 
+#USUARI
+exchangeit_back_end_usuari_edit:
+    path:     /edit/{id}
+    defaults: { _controller: FOSUserBundle:Profile:edit }
+
+exchangeit_back_end_usuari_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BackEndBundle:Default:delete }
+#TAULA ADMIN
+exchangeit_back_end_usuari_edit_taula:
+    path:     /edit-tabla/{id}
+    defaults: { _controller: FOSUserBundle:Profile:editUser }
+
 #LLISTATS
 exchangeit_back_end_llistaCatGramatical:
     path:     /llistaCatGramatical
