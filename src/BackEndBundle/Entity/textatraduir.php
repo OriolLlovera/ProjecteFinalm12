@@ -3,7 +3,7 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * textatraduir
  *
@@ -35,6 +35,14 @@ class textatraduir
      */
     private $idiomaOriginal;
 
+
+    /**
+    * @ORM\OneToMany(targetEntity="texttraduit", mappedBy="textatraduir")
+    */
+    protected $texttraduit;
+    public function __constructor() {
+        $this->texttraduit = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -93,5 +101,49 @@ class textatraduir
     {
         return $this->idiomaOriginal;
     }
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->texttraduit = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add texttraduit
+     *
+     * @param \BackEndBundle\Entity\texttraduit $texttraduit
+     *
+     * @return texttraduit
+     */
+    public function addTexttraduit(\BackEndBundle\Entity\texttraduit $texttraduit)
+    {
+        $this->texttraduit[] = $texttraduit;
+
+        return $this;
+    }
+
+    /**
+     * Remove texttraduit
+     *
+     * @param \BackEndBundle\Entity\texttraduit $texttraduit
+     */
+    public function removeTexttraduit(\BackEndBundle\Entity\texttraduit $texttraduit)
+    {
+        $this->texttraduit->removeElement($texttraduit);
+    }
+
+    /**
+     * Get texttraduit
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTexttraduit()
+    {
+        return $this->texttraduit;
+    }
+
 }
 

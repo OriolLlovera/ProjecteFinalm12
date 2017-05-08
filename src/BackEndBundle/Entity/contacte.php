@@ -31,7 +31,8 @@ class contacte
     /**
      * @var int
      *
-     * @ORM\Column(name="idmissatgeria", type="integer")
+     * @ORM\ManyToOne(targetEntity="missatgeria",inversedBy="contacte")
+     * @ORM\JoinColumn(name="idmissatgeria", referencedColumnName="id")
      */
     private $idmissatgeria;
 
@@ -117,5 +118,31 @@ class contacte
     {
         return $this->idmissatgeria;
     }
+
+
+    /**
+     * Set missatgeria
+     *
+     * @param \BackEndBundle\Entity\missatgeria $missatgeria
+     *
+     * @return missatgeria
+     */
+    public function setMissatgeria(\BackEndBundle\Entity\missatgeria $missatgeria = null)
+    {
+        $this->missatgeria = $missatgeria;
+
+        return $this;
+    }
+
+    /**
+     * Get missatgeria
+     *
+     * @return \BackEndBundle\Entity\missatgeria
+     */
+    public function getMissatgeria()
+    {
+        return $this->missatgeria;
+    }
+
 }
 

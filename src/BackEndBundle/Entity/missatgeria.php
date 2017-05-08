@@ -3,7 +3,7 @@
 namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * missatgeria
  *
@@ -48,6 +48,14 @@ class missatgeria
      * @ORM\Column(name="llegit", type="boolean")
      */
     private $llegit;
+
+    /**
+    * @ORM\OneToMany(targetEntity="contacte", mappedBy="missatgeria")
+    */
+    protected $contacte;
+    public function __constructor() {
+        $this->contacte = new ArrayCollection();
+    }
 
 
     /**
@@ -155,5 +163,50 @@ class missatgeria
     {
         return $this->llegit;
     }
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacte = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add contacte
+     *
+     * @param \BackEndBundle\Entity\contacte $contacte
+     *
+     * @return contacte
+     */
+    public function addContacte(\BackEndBundle\Entity\contacte $contacte)
+    {
+        $this->contacte[] = $contacte;
+
+        return $this;
+    }
+
+    /**
+     * Remove contacte
+     *
+     * @param \BackEndBundle\Entity\contacte $contacte
+     */
+    public function removeContacte(\BackEndBundle\Entity\contacte $contacte)
+    {
+        $this->contacte->removeElement($contacte);
+    }
+
+    /**
+     * Get contacte
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getContacte()
+    {
+        return $this->contacte;
+    }
+
+
 }
 

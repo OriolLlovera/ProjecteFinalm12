@@ -4,7 +4,6 @@ namespace BackEndBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * idioma
  *
@@ -31,13 +30,12 @@ class idioma
 
 
     /**
-    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="idioma")
+    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="idioma")
     */
-    protected $Paraula;
+    protected $traduccioparaula;
     public function __constructor() {
-        $this->Paraula = new ArrayCollection();
+        $this->traduccioparaula = new ArrayCollection();
     }
-
 
 
     /**
@@ -74,46 +72,48 @@ class idioma
         return $this->nom;
     }
 
-     /**
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->Paraula = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add Paraula
+     * Add traduccioparaula
      *
-     * @param \exchangeIt\BackEndBundle\Entity\Paraula $Paraula
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
      *
-     * @return idioma
+     * @return traduccioparaula
      */
-    public function addVehicle(\exchangeIt\BackEndBundle\Entity\Paraula $vehicle)
+    public function addTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
     {
-        $this->vehicles[] = $vehicle;
+        $this->traduccioparaula[] = $traduccioparaula;
 
         return $this;
     }
 
     /**
-     * Remove Paraula
+     * Remove traduccioparaula
      *
-     * @param \exchangeIt\BackEndBundle\Entity\Paraula $Paraula
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
      */
-    public function removeVehicle(\exchangeIt\BackEndBundle\Entity\Paraula $Paraula)
+    public function removeTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
     {
-        $this->Paraula->removeElement($Paraula);
+        $this->traduccioparaula->removeElement($traduccioparaula);
     }
 
     /**
-     * Get Paraules
+     * Get traduccioparaula
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getParaules()
+    public function getTraduccioparaula()
     {
-        return $this->Paraula;
+        return $this->traduccioparaula;
     }
+
+
 }
 

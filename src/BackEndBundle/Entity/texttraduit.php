@@ -31,7 +31,8 @@ class texttraduit
     /**
      * @var int
      *
-     * @ORM\Column(name="idUsuari", type="integer")
+     * @ORM\ManyToOne(targetEntity="textatraduir",inversedBy="texttraduit")
+     * @ORM\JoinColumn(name="idUsuari", referencedColumnName="id")
      */
     private $idUsuari;
 
@@ -124,5 +125,32 @@ class texttraduit
     {
         return $this->textTraduit;
     }
+
+
+    /**
+     * Set textatraduir
+     *
+     * @param \BackEndBundle\Entity\textatraduir $textatraduir
+     *
+     * @return textatraduir
+     */
+    public function setTextatraduir(\BackEndBundle\Entity\textatraduir $textatraduir = null)
+    {
+        $this->textatraduir = $textatraduir;
+
+        return $this;
+    }
+
+    /**
+     * Get textatraduir
+     *
+     * @return \BackEndBundle\Entity\textatraduir
+     */
+    public function getTextatraduir()
+    {
+        return $this->textatraduir;
+    }
+
+
 }
 

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Administració{% endblock %}</title>
+        <title>{% block title %}Administració backend{% endblock %}</title>
         {% block stylesheets %}
             <link href="{{ asset('public/backend/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('public/backend/css/shop-homepage.css') }}" rel="stylesheet">
@@ -24,13 +24,16 @@
                                     <a href="{{path('exchangeit_back_end_llistaUsuaris')}}">Llista usuaris</a>
                                 </li>
                                 <li>
-                                    <a href="{{path('exchangeit_back_end_llistaIdiomes')}}">Llista idiomes</a>
-		                        </li>
-                                <li>
-                                	<a href="{{path('exchangeit_back_end_llistaCatGramatical')}}">Llista categories gramaticals</a><br>
+                                    <a href="{{path('exchangeit_back_end_llistaIdioma')}}">Llista idiomes</a>
                                 </li>
                                 <li>
-                                	<a href="{{path('exchangeit_back_end_llistaCatFamilia')}}">Llista categories families</a>
+                                    <a href="{{path('exchangeit_back_end_llistaCatGramatical')}}">Llista categories gramaticals</a><br>
+                                </li>
+                                <li>
+                                    <a href="{{path('exchangeit_back_end_llistaCatFamilia')}}">Llista categories families</a>
+                                </li>
+                                <li>
+                                    <a href="{{path('exchangeit_back_end_llistaParaula')}}">Llista paraules</a>
                                 </li>
                             </ul>
                         </div>
@@ -41,8 +44,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                        	<h4>BACKEND - Manteniment d'idiomes.</h4>
-                        	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                            <h4>BACKEND - Manteniment d'idiomes.</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat neque dolor, non rhoncus nulla molestie sagittis. Mauris quis tortor viverra, sollicitudin lectus id, tempor risus. Sed tempus rutrum diam fringilla iaculis. Quisque mollis elit eget ex venenatis, vel pretium ipsum aliquet. Nulla convallis scelerisque metus quis tempus. Cras vestibulum imperdiet neque. Vestibulum in tortor lorem. Pellentesque lobortis orci vel euismod placerat. Aenean congue lacus urna, vel interdum orci lobortis et. Sed nunc nibh, mollis nec justo id, egestas placerat velit. Ut nec dapibus arcu. Suspendisse fringilla ultricies velit, in pharetra lacus commodo ut. Nullam tincidunt malesuada velit, quis elementum lacus tristique eget. Etiam non dolor tempor, cursus massa sit amet, vestibulum massa.</p>
+                            <a href="{{ path('exchangeit_front_end_homepage') }}" class="btn btn-info" role="button">Ves al frontend</a>
                         </div>
                     </div>
                 </div>
