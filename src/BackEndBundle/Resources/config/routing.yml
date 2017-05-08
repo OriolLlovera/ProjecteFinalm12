@@ -28,7 +28,7 @@ exchangeit_back_end_llistaUsuaris:
     path:     /llistaUsuaris
     defaults: { _controller: BackEndBundle:Default:llistaUsuaris }
 
-exchangeit_back_end_llistaIdioma:
+exchangeit_back_end_llistaIdiomes:
     path:     /llistaIdioma
     defaults: { _controller: BackEndBundle:Default:llistaIdioma }
 
