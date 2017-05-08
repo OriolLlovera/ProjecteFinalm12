@@ -1,6 +1,45 @@
-{% trans_default_domain 'FOSUserBundle' %}
-<h1>Perfil</h1>
-<div class="fos_user_user_show">
-    <p>{{ 'Username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'Email'|trans }}: {{ user.email }}</p>
+{% extends "BackEndBundle:Default:index.html.twig " %}
+{% block title %}Perfil Usuari{% endblock %}
+{% block page_content %}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 col-sm-6">
+
+            <div class="card hovercard text-center">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="{{user.image}}" width="50px" height="50px">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p><strong>{{ user.username }} {{user.cognom}}</strong></p>
+                    </div>
+                    <div class="title">
+                        <p>{{ user.dni }}</p>
+                    </div>
+                    <div class="desc">{{ user.email }}</div>  
+                    <div class="desc">Ultima connexio:{{ user.lastLogin|date("d/m/Y") }}</div>
+                 {% for rol in user.roles %}
+                    {% if rol == "ROLE_ADMIN" %}
+                        <div class="desc">Rol : Administrador</div> 
+                    {% elseif rol == "ROLE_TRANS" %}                   
+                        <div class="desc">Rol : Traductor</div> 
+                    {% else %}
+                         <div class="desc">Rol : Usuari</div> 
+                    {% endif %}    
+                    
+                 {% endfor %}                        
+                </div>
+                <div class="bottom">                    
+                    <a class="btn btn-danger" href="{{path('exchangeit_back_end_usuari_edit',{ 'id': user.id }) }}">Editar</a> 
+                </div>
+            </div>
+
+        </div>
+
+	</div>
 </div>
+{% endblock %}
