@@ -31,3 +31,108 @@ exchangeit_back_end_llistaUsuaris:
 exchangeit_back_end_llistaIdiomes:
     path:     /llistaIdioma
     defaults: { _controller: BackEndBundle:Default:llistaIdioma }
+
+exchangeit_back_end_llistaParaula:
+    path:     /llistaParaula
+    defaults: { _controller: BackEndBundle:Default:llistaParaula }
+
+#---------------------------IDIOMA----------------------------
+
+#AFEGIR IDIOMA
+exchangeit_back_end_form_afegiridioma:
+    path:     /afegir-idioma
+    defaults: { _controller: BackEndBundle:Default:formAfegirIdioma }
+
+exchangeit_back_end_afegiridioma:
+    path:     /crear-idioma
+    defaults: { _controller: BackEndBundle:Default:afegirIdioma }
+
+#EDITAR IDIOMA
+exchangeit_back_end_form_editaridioma:
+    path:     /editar-idioma/{id}
+    defaults: { _controller: BackEndBundle:Default:formEditarIdioma }
+
+exchangeit_back_end_editaridioma:
+    path:     /idioma-editat/{id}
+    defaults: { _controller: BackEndBundle:Default:editarIdioma }
+
+#ESBORRAR IDIOMA
+exchangeit_back_end_esborraridioma:
+    path:     /esborrar-idioma/{id}
+    defaults: { _controller: BackEndBundle:Default:esborrarIdioma }
+
+#------------------------CAT-GRAMATICAL-----------------------------
+
+#AFEGIR CAT GRAMATICAL
+exchangeit_back_end_form_afegircatgramatical:
+        path:     /afegir-catgramatical
+        defaults: { _controller: BackEndBundle:Default:formAfegirCatGramatical }
+
+exchangeit_back_end_afegircatgramatical:
+    path:     /crear-catgramatical
+    defaults: { _controller: BackEndBundle:Default:afegirCatGramatical }
+
+#EDITAR CAT GRAMATICAL
+exchangeit_back_end_form_editarcatgramatical:
+        path:     /editar-catgramatical/{id}
+        defaults: { _controller: BackEndBundle:Default:formEditarCatGramatical }
+
+exchangeit_back_end_editarcatgramatical:
+    path:     /catgramatical-editat/{id}
+    defaults: { _controller: BackEndBundle:Default:editarCatGramatical }
+
+#ESBORRAR CAT GRAMATICAL
+exchangeit_back_end_esborrarcatgramatical:
+    path:     /esborrar-catgramatical/{id}
+    defaults: { _controller: BackEndBundle:Default:esborrarCatGramatical }
+
+#---------------------------CAT-FAMILIA--------------------------------
+
+#AFEGIR CAT FAMILIA
+exchangeit_back_end_form_afegircatfamilia:
+        path:     /afegir-catfamilia
+        defaults: { _controller: BackEndBundle:Default:formAfegirCatFamilia }
+
+exchangeit_back_end_afegircatfamilia:
+    path:     /crear-catfamilia
+    defaults: { _controller: BackEndBundle:Default:afegirCatFamilia }
+
+#EDITAR CAT FAMILIA
+exchangeit_back_end_form_editarcatfamilia:
+        path:     /editar-catfamilia/{id}
+        defaults: { _controller: BackEndBundle:Default:formEditarCatFamilia }
+
+exchangeit_back_end_editarcatfamilia:
+    path:     /catfamilia-editat/{id}
+    defaults: { _controller: BackEndBundle:Default:editarCatFamilia }
+
+#ESBORRAR CAT FAMILIA
+exchangeit_back_end_esborrarcatfamilia:
+    path:     /esborrar-catfamilia/{id}
+    defaults: { _controller: BackEndBundle:Default:esborrarCatFamilia }
+
+#---------------------------PARAULA--------------------------------
+
+#AFEGIR PARAULA
+exchangeit_back_end_form_afegirparaula:
+        path:     /afegir-paraula
+        defaults: { _controller: BackEndBundle:Default:formAfegirParaula }
+
+exchangeit_back_end_afegirparaula:
+    path:     /crear-paraula
+    defaults: { _controller: BackEndBundle:Default:afegirParaula }
+
+#EDITAR PARAULA
+exchangeit_back_end_form_editarparaula:
+        path:     /editar-paraula/{id}
+        defaults: { _controller: BackEndBundle:Default:formEditarParaula }
+
+exchangeit_back_end_editarparaula:
+    path:     /paraula-editat/{id}
+    defaults: { _controller: BackEndBundle:Default:editarParaula }
+
+#ESBORRAR PARAULA
+exchangeit_back_end_esborrarparaula:
+    path:     /esborrar-paraula/{id}
+    defaults: { _controller: BackEndBundle:Default:esborrarParaula }
+

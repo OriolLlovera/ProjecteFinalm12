@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Paraula
  *
  * @ORM\Table(name="paraula")
- * @ORM\Entity(repositoryClass="BackEndBundle\Repository\paraulaRepository")
+ * @ORM\Entity(repositoryClass="BackEndBundle\Repository\ParaulaRepository")
  */
 class Paraula
 {
@@ -31,14 +31,16 @@ class Paraula
     /**
      * @var string
      *
-     * @ORM\Column(name="categoriaGramatical", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="catgramatical",inversedBy="paraula")
+     * @ORM\JoinColumn(name="categoriaGramatical", referencedColumnName="id")
      */
     private $categoriaGramatical;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="categoriaFamilia", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="catfamilia",inversedBy="paraula")
+     * @ORM\JoinColumn(name="categoriaFamilia", referencedColumnName="id")
      */
     private $categoriaFamilia;
 
@@ -50,14 +52,12 @@ class Paraula
     private $definicio;
 
     /**
-    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="paraula")
+    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="traduccioparaula")
     */
     protected $traduccioparaula;
     public function __constructor() {
         $this->traduccioparaula = new ArrayCollection();
     }
-
-
 
     /**
      * Get id
@@ -74,7 +74,7 @@ class Paraula
      *
      * @param string $paraula
      *
-     * @return Paraula
+     * @return paraula
      */
     public function setParaula($paraula)
     {
@@ -89,7 +89,7 @@ class Paraula
      * @return string
      */
     public function getParaula()
-    {
+    {   
         return $this->paraula;
     }
 
@@ -167,6 +167,54 @@ class Paraula
 
 
     /**
+     * Set categoriaGramatical
+     *
+     * @param \BackEndBundle\Entity\catgramatical $categoriaGramatical
+     *
+     * @return paraula
+     */
+    public function setCatgramatical(\BackEndBundle\Entity\catgramatical $categoriaGramatical = null)
+    {
+        $this->categoriaGramatical = $categoriaGramatical;
+
+        return $this;
+    }
+
+    /**
+     * Get categoriaGramatical
+     *
+     * @return \BackEndBundle\Entity\catgramatical
+     */
+    public function getCatgramatical()
+    {
+        return $this->categoriaGramatical;
+    }
+
+    /**
+     * Set categoriaFamilia
+     *
+     * @param \BackEndBundle\Entity\catfamilia $categoriaFamilia
+     *
+     * @return paraula
+     */
+    public function setCatfamilia(\BackEndBundle\Entity\catfamilia $categoriaFamilia = null)
+    {
+        $this->categoriaFamilia = $categoriaFamilia;
+
+        return $this;
+    }
+
+    /**
+     * Get categoriaFamilia
+     *
+     * @return \BackEndBundle\Entity\catfamilia
+     */
+    public function getCatfamilia()
+    {
+        return $this->categoriaFamilia;
+    }
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -175,20 +223,38 @@ class Paraula
     }
 
     /**
-     * Set id_paraula
+     * Add traduccioparaula
      *
-     * @param \exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
      *
-     * @return id_paraula
+     * @return traduccioparaula
      */
-    public function setIdParaula(\exchangeIt\BackEndBundle\Entity\traduccioparaula $id_paraula = null)
+    public function addTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
     {
-        $this->traduccioparaula = $id_paraula;
+        $this->traduccioparaula[] = $traduccioparaula;
 
         return $this;
     }
 
-    
+    /**
+     * Remove traduccioparaula
+     *
+     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     */
+    public function removeTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    {
+        $this->traduccioparaula->removeElement($traduccioparaula);
+    }
+
+    /**
+     * Get traduccioparaula
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTraduccioparaula()
+    {
+        return $this->traduccioparaula;
+    }
 
 }
 
