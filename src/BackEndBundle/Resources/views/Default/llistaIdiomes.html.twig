@@ -1,34 +1,35 @@
 {% extends "BackEndBundle:Default:index.html.twig " %}
 {% block title %}Llista idiomes{% endblock %}
 {% block page_content %}
-    <h4>{{ titol }}</h4>
-    <table id="mytable" class="table table-bordred table-striped">
-        <thead>
-            <th>Nom</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-        </thead>
-        <tbody>
-            {% for category in idioma %}
-                <tr>
-                    <th>{{ category.nom|upper }}</th>
-                    <td>
-                        <p data-placement="top" data-toggle="tooltip" title="Editar">
-                            <a href="{{ path('exchangeit_back_end_form_editaridioma', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
-                        </p>
-                    </td>
-                    <td>
-                        <p data-placement="top" data-toggle="tooltip" title="Eliminar">
-                            <a href="{{ path('exchangeit_back_end_esborraridioma', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
-                        </p>
-                    </td>
+    <div class="table-responsive text-center">    
+        <div class="container">
+            <h4>{{ titol }}</h4>
+            <table id="myTable">
+                <tr class="header headerfons">
+                    <th>Nom</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
-            {% endfor %}
-
-        </tbody>
-    </table>
+                {% for category in idioma %}
+                    <tr>
+                        <th>{{ category.nom|upper }}</th>
+                        <td>
+                            <p data-placement="top" data-toggle="tooltip" title="Editar">
+                                <a href="{{ path('exchangeit_back_end_form_editaridioma', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                            </p>
+                        </td>
+                        <td>
+                            <p data-placement="top" data-toggle="tooltip" title="Eliminar">
+                                <a href="{{ path('exchangeit_back_end_esborraridioma', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                            </p>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12">
+        <div class="col-sm-12 col-lg-12 col-md-12 posicio-boto">
             <a href="{{ path('exchangeit_back_end_form_afegiridioma') }}" class="btn btn-info" role="button">Afegir idioma</a>
         </div>
     </div>

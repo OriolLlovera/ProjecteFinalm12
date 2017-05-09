@@ -1,47 +1,37 @@
 {% extends "BackEndBundle:Default:index.html.twig " %}
-{% block title %}Llista Paraules{% endblock %}
+{% block title %}Diccionari de Paraules{% endblock %}
 {% block page_content %}
-    <h4>{{ titol }}</h4>
-    <table id="mytable" class="table table-bordred table-striped">
-        <thead>
-            <th>Paraula</th>
-            <th>Cat. Gramatical</th>
-            <th>Cat. Família</th>
-            <th>Definició</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-        </thead>
-        <tbody>
-            {% for category in paraula %}
-                <tr>
-                    <th>{{ category.paraula|upper }}</th>
-                    {% if category.catgramatical != NULL %}
-                        <td>{{ category.catgramatical.nom }}</td>
-                    {% else %}
-                        <td>-</td>
-                    {% endif %}
-                    {% if category.catfamilia != NULL %}
-                        <td>{{ category.catfamilia.nom }}</td>
-                    {% else %}
-                        <td>-</td>
-                    {% endif %}
-                    <td>{{ category.definicio }}</td>
-                    <td>
-                        <p data-placement="top" data-toggle="tooltip" title="Editar">
-                            <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
-                        </p>
-                    </td>
-                    <td>
-                        <p data-placement="top" data-toggle="tooltip" title="Eliminar">
-                            <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
-                        </p>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <h4 class="text-center">{{ titol }}</h4>
+    <div class="container">
+        {% for category in paraula %}
+            <div class="container-diccionari"><div class="capa-diccionari">
+                <label>Paraula:</label>
+                <span>{{ category.paraula|upper }}</span><br>
+                <label>Cat. Gramatical:</label>
+                {% if category.catgramatical != NULL %}
+                    <span>{{ category.catgramatical.nom }}</span><br>
+                {% else %}
+                    <span>-</span><br>
+                {% endif %}
+                <label>Cat. Família:</label>
+                {% if category.catfamilia != NULL %}
+                    <span>{{ category.catfamilia.nom }}</span><br>
+                {% else %}
+                    <span>-</span><br>
+                {% endif %}
+                <label>Definició:</label>
+                <span>{{ category.definicio }}</span><br>
+                <span data-placement="top" data-toggle="tooltip" title="Editar" class="icones-crud">
+                    <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                </span>
+                <span data-placement="top" data-toggle="tooltip" title="Eliminar" class="icones-crud">
+                    <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                </span>
+            </div></div>
+        {% endfor %}
+    </div>
     <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12">
+        <div class="col-sm-12 col-lg-12 col-md-12 text-center">
             <a href="{{ path('exchangeit_back_end_form_afegirparaula') }}" class="btn btn-info" role="button">Afegir Paraula</a>
         </div>
     </div>

@@ -84,7 +84,7 @@ class DefaultController extends Controller
         $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findAll();
 
         return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
-            'titol' => 'Llistat Paraules',
+            'titol' => 'Diccionari de Paraules',
             'paraula' => $llista));
     }
 
@@ -316,10 +316,10 @@ class DefaultController extends Controller
         $Paraula = new Paraula();
         $Paraula->setParaula($paraula);
 
-        $Paraula->setCatgramatical($categoriaGramatical);
-        $Paraula->getCatgramatical($categoriaGramatical);
-        $Paraula->setCatfamilia($categoriaFamilia);
-        $Paraula->getCatfamilia($categoriaFamilia);
+        $Paraula->setCatgramatical($categoriagramatical);
+        $Paraula->getCatgramatical($categoriagramatical);
+        $Paraula->setCatfamilia($categoriafamilia);
+        $Paraula->getCatfamilia($categoriafamilia);
 
         $Paraula->setDefinicio($definicio);
 
@@ -347,10 +347,10 @@ class DefaultController extends Controller
             'paraula' => $paraula,
 
             'catgramatical' => $catgramatical,
-            'categoriagramatical' => $categoriaGramatical,
+            'categoriagramatical' => $categoriagramatical,
 
             'catfamilia' => $catfamilia,
-            'categoriafamilia' => $categoriaFamilia,
+            'categoriafamilia' => $categoriafamilia,
 
             'definicio' => $definicio
             )
