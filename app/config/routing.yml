@@ -4,7 +4,7 @@ back_end:
 
 front_end:
     resource: "@FrontEndBundle/Resources/config/routing.yml"
-    prefix:   /frontend
+    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'

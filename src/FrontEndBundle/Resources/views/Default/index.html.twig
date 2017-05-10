@@ -1,39 +1,38 @@
 {% extends "FrontEndBundle:Default:base.html.twig" %}
 {% block title %}Inici{% endblock %}
 {% block content %}
-	<div class="slider">
-		<div class="container">
-			<div id="about-slider">
-				<div id="carousel-slider" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-				  	<ol class="carousel-indicators visible-xs">
-					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-slider" data-slide-to="1"></li>
-					    <li data-target="#carousel-slider" data-slide-to="2"></li>
-				  	</ol>
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="{{asset('public/frontend/images/slider_one.jpg')}}" class="img-responsive" alt=""> 
-					   </div>
-					   <div class="item">
-							<img src="{{asset('public/frontend/images/slider_two.jpg')}}" class="img-responsive" alt=""> 
-					   </div> 
-					   <div class="item">
-							<img src="{{asset('public/frontend/images/slider_three.jpg')}}" class="img-responsive" alt=""> 
-					   </div> 
-					</div>
-					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-						<i class="fa fa-angle-left"></i> 
-					</a>
-					<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-						<i class="fa fa-angle-right"></i> 
-					</a>
-				</div> <!--/#carousel-slider-->
-			</div><!--/#about-slider-->
-		</div>
-	</div>
+	<div class="container-fluid">
+        <div class="row"> 
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
 
-	 <section id="feature" >
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="{{asset('public/backend/images/categorias.jpg')}}" alt="Categories" style="width:100%;">
+                  </div>
+                  <div class="item">
+                    <img src="{{asset('public/backend/images/diccionario.jpg')}}" alt="Diccionari" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Següent</span>
+                </a>
+            </div>
+        </div>
+    </div>
+	<section id="feature" >
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>Les nostres especialitats</h2>

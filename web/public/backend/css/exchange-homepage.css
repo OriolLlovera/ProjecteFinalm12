@@ -45,8 +45,6 @@ body {
 }
 
 .container-diccionari {
-    width: 30%;
-    float: left;
     margin: 1%;
     padding: 1%;
     border: 1px solid black;
@@ -54,18 +52,28 @@ body {
     background: url('../images/diccionario.jpg');
     background-position: center;
     background-size: 100%;
-    color: black;
 
 }
 
-.capa-diccionari {
+.capa-blanca {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 1%;
     border-radius: 15px;
 }
 
-.icones-crud {
-    float: right;
+.container-categories {
+    margin: 1%;
+    padding: 3%;
+    border: 1px solid black;
+    border-radius: 15px;
+    background: url('../images/categorias.jpg');
+    background-position: center;
+    background-size: 100%;
+
+}
+
+.boto-afegir {
+    padding-top: 2%;
 }
 
 /* Footer */
