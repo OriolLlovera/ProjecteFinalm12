@@ -11,6 +11,7 @@ parameters:
     locale: ca
 
 framework:
+    http_method_override: true
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -78,3 +79,14 @@ fos_user:
     from_email:
         address: admin@admin.com
         sender_name: You
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: BackEndBundle\Entity\Comment
+            thread: BackEndBundle\Entity\Thread
+
+# assetic:
+#   bundles: [ "FOSCommentBundle" ]        
+  
