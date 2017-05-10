@@ -15,10 +15,62 @@ class DefaultController extends Controller
         return $this->render('BackEndBundle:Default:index.html.twig');
     }
 
+    #EDITAR USUARI TAULA ADMIN
+        public function editUserAction($id,Request $request){
+        $usuari = $this->getDoctrine()->getRepository('BackEndBundle:User')->findOneById($id);
+        $form = $this->createFormBuilder($usuari)
+            ->add('image', TextType::class, array('label' => 'Imatge','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop')))
+            ->add('dni', TextType::class, array('label' => 'Dni','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop'))) 
+            ->add('username', TextType::class, array('label' => 'Nom d\'usuari','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop')))  
+            ->add('email', EmailType::class, array('label' => 'Email','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop')))    
+            ->add('password', PasswordType::class, array('label' => 'Password','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop')))    
+            ->add('roles', ChoiceType::class, array('label' => 'Rol', 
+            'attr' => ['class' => 'selectRol'],
+            'required' => true, 'choices' => array("Traductor" => 'ROLE_TRANS',"Administrador" => 'ROLE_ADMIN', "Usuari" => 'ROLE_USER'), 'multiple' => true))
+            ->add('save', SubmitType::class, array('label' => 'Editar Usuari',
+                    'attr' => array(
+                        'class' => 'btn btn-warning mt')))
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {            
+            $em = $this->getDoctrine()->getManager();
+            $password = $usuari->getPassword();
+            $encoder = $this->container->get('security.password_encoder');
+            $passwordEncrypt = $encoder->encodePassword($usuari, $password);
+            $usuari->setPassword($passwordEncrypt);
+            $em->persist($usuari);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add(
+                    'notice',array(
+                    'type' => 'success',
+                    'msg' => 'S\'ha editat l\'usuari'
+            ));
+            return $this->redirect($this->generateurl('exchangeit_back_end_usuari_edit_taula'));
+        };
+ 
+        return $this->render('@FOSUser/Profile/edit.html.twig', array(
+            'titol' => 'Editar Usuari',
+            'form' => $form->createView()
+        ));
+    }
+
+
+
+
+
     #ESBORRAR USUARI
     public function deleteAction($id){
         $usuari = $this->getDoctrine()->getRepository('BackEndBundle:User')->findOneById($id);
-        echo $usuari;
         if ($usuari != null) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($usuari);
@@ -37,7 +89,7 @@ class DefaultController extends Controller
         }
         $arrayUsuari = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
         return $this->render('BackEndBundle:Default:llistaUsuaris.html.twig',array(
-            'array'=>$arrayUsuari
+            'User'=>$arrayUsuari
             ));
     }
 

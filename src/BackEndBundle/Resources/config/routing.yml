@@ -13,7 +13,7 @@ exchangeit_back_end_usuari_delete:
 #TAULA ADMIN
 exchangeit_back_end_usuari_edit_taula:
     path:     /edit-tabla/{id}
-    defaults: { _controller: FOSUserBundle:Profile:editUser }
+    defaults: { _controller: BackEndBundle:Default:editUser }
 
 #LLISTATS
 exchangeit_back_end_llistaCatGramatical:

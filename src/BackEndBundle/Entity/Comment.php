@@ -5,12 +5,14 @@ namespace BackEndBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\CommentBundle\Entity\Comment as BaseComment;
 use FOS\CommentBundle\Model\VotableCommentInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\CommentBundle\Model\SignedCommentInterface;
 
 /**
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Comment extends BaseComment implements VotableCommentInterface
+class Comment extends BaseComment implements VotableCommentInterface,SignedCommentInterface
 {
     /**
      * @ORM\Id
@@ -67,5 +69,32 @@ class Comment extends BaseComment implements VotableCommentInterface
     public function incrementScore($by = 1)
     {
         $this->score += $by;
+    }
+
+       /**
+     * Author of the comment
+     *
+     * @ORM\ManyToOne(targetEntity="BackEndBundle\Entity\User")
+     * @var User
+     */
+    protected $author;
+
+    public function setAuthor(UserInterface $author)
+    {
+        $this->author = $author;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function getAuthorName()
+    {
+        if (null === $this->getAuthor()) {
+            return 'Anònim';
+        }
+
+        return $this->getAuthor()->getUsername();
     }
 }

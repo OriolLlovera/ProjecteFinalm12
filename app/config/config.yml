@@ -87,7 +87,25 @@ fos_comment:
             comment: BackEndBundle\Entity\Comment
             thread: BackEndBundle\Entity\Thread
             vote: BackEndBundle\Entity\Vote
-
+      
+    # acl: true
+    # acl_roles:
+    #     comment:
+    #         create: ROLE_USER
+    #         view: IS_AUTHENTICATED_ANONYMOUSLY
+    #         edit: ROLE_ADMIN
+    #         delete: ROLE_ADMIN
+    #     thread:
+    #         create: ROLE_USER
+    #         view: IS_AUTHENTICATED_ANONYMOUSLY
+    #         edit: ROLE_ADMIN
+    #         delete: ROLE_ADMIN
+    #     vote:
+    #         create: ROLE_USER
+    #         view: IS_AUTHENTICATED_ANONYMOUSLY
+    #         edit: ROLE_ADMIN
+    #         delete: ROLE_ADMIN
+           
 assetic:
   bundles: [ "FOSCommentBundle" ]        
   
