@@ -86,7 +86,8 @@ fos_comment:
         model:
             comment: BackEndBundle\Entity\Comment
             thread: BackEndBundle\Entity\Thread
+            vote: BackEndBundle\Entity\Vote
 
-# assetic:
-#   bundles: [ "FOSCommentBundle" ]        
+assetic:
+  bundles: [ "FOSCommentBundle" ]        
   

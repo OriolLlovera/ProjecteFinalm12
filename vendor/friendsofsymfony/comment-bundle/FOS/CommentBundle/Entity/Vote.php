@@ -1,45 +1,26 @@
 <?php
-// src/MyProject/MyBundle/Entity/Vote.php
+
+/**
+ * This file is part of the FOSCommentBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace FOS\CommentBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Entity\Vote as BaseVote;
-use FOS\CommentBundle\Model\SignedVoteInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\CommentBundle\Model\Vote as BaseVote;
 
 /**
- * @ORM\Entity
+ * Default ORM implementation of VoteInterface.
+ *
+ * This class must be extended and properly mapped by the developer.
+ *
+ * @author Tim Nagel <tim@nagel.com.au>
  */
-class Vote extends BaseVote implements SignedVoteInterface
+abstract class Vote extends BaseVote
 {
-    // .. fields
 
-    /**
-     * Author of the vote
-     *
-     * @ORM\ManyToOne(targetEntity="BackEndBundle\Entity\User")
-     * @var User
-     */
-    protected $voter;
-
-    /**
-     * Sets the owner of the vote
-     *
-     * @param UserInterface $voter
-     */
-    public function setVoter(UserInterface $voter)
-    {
-        $this->voter = $voter;
-    }
-
-    /**
-     * Gets the owner of the vote
-     *
-     * @return UserInterface
-     */
-    public function getVoter()
-    {
-        return $this->voter;
-    }
 }
