@@ -7,6 +7,14 @@ use BackEndBundle\Entity\catfamilia;
 use BackEndBundle\Entity\Paraula;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 
 class DefaultController extends Controller
 {
@@ -24,7 +32,10 @@ class DefaultController extends Controller
                     'label_attr'=> array('class' => 'label_text spaceTop')))
             ->add('dni', TextType::class, array('label' => 'Dni','attr' => array(
                     'class' => 'form-control'),
-                    'label_attr'=> array('class' => 'label_text spaceTop'))) 
+                    'label_attr'=> array('class' => 'label_text spaceTop')))
+            ->add('cognom', TextType::class, array('label' => 'Cognom','attr' => array(
+                    'class' => 'form-control'),
+                    'label_attr'=> array('class' => 'label_text spaceTop')))          
             ->add('username', TextType::class, array('label' => 'Nom d\'usuari','attr' => array(
                     'class' => 'form-control'),
                     'label_attr'=> array('class' => 'label_text spaceTop')))  
@@ -55,10 +66,10 @@ class DefaultController extends Controller
                     'type' => 'success',
                     'msg' => 'S\'ha editat l\'usuari'
             ));
-            return $this->redirect($this->generateurl('exchangeit_back_end_usuari_edit_taula'));
+            return $this->redirect($this->generateurl('exchangeit_back_end_llistaUsuaris'));
         };
  
-        return $this->render('@FOSUser/Profile/edit.html.twig', array(
+        return $this->render('BackEndBundle:Default:form.html.twig', array(
             'titol' => 'Editar Usuari',
             'form' => $form->createView()
         ));
