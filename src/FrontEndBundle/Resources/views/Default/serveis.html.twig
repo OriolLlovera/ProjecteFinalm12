@@ -1,1 +1,86 @@
-SERVEIS
+{% extends "FrontEndBundle:Default:base.html.twig" %}
+{% block title %}Serveis{% endblock %}
+{% block content %}
+    <section id="services" class="service-item">
+       <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Els Nostres Serveis</h2>
+                <p class="lead">Disposem de tots els serveis necessaris per al teu aprenentatge</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive serveis-icon" src="{{asset('public/frontend/images/idioma-icon.png')}}">
+                        </div>                        
+                        <div class="media-body">
+                            <h3 class="media-heading">Traducció de textos</h3>
+                            <p>Els usuaris publiquen els textos en idioma original i altres els tradueixen.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive serveis-icon" src="{{asset('public/frontend/images/diccionari-icon.png')}}">
+                        </div>
+                       
+                        <div class="media-body">
+                            <h3 class="media-heading">Diccionari de paraules</h3>
+                            <p>Posem a disposició de l'usuari un diccionari amb vocabulari general.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive serveis-icon" src="{{asset('public/frontend/images/missatgeria-icon.png')}}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Servei de missatgeria</h3>
+                            <p>Es poden enviar missatges entre usuaris que es tinguin a la llista de contactes.</p>
+                        </div>
+                    </div>
+                </div>                                           
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+    <section id="feature" class="transparent-bg">
+        <div class="container">
+            <div class="get-started center wow fadeInDown">
+                <h2>Vols més informació?</h2>
+                <p class="lead">Contacta amb nosalters sense cap compromís.</p>
+                <div class="request">
+                    <h4><a href="{{path('exchangeit_front_end_contacte')}}">Contactar amb ExchangeIt</a></h4>
+                </div>
+            </div><!--/.get-started-->
+            <div class="clients-area center wow fadeInDown">
+                <h2>Que opinen els nostres usuaris?</h2>
+                <p class="lead">Coneix la opinio d'alguns dels nostres usuaris més recents</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="{{asset('public/frontend/images/persona1.png')}}" class="img-circle" alt="">
+                        <h3>Un dels millors traductors online que he trobat, he tingut les traduccions que necessitava molt més ràpid del que pensava.</h3>
+                        <h4><span>- Josep Pocurull /</span> Santa Maria de Palautordera</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="{{asset('public/frontend/images/persona2.png')}}" class="img-circle" alt="">
+                        <h3>Traducció inmediata i amb uns grans resultats, no dubtaré en utilitzar un altre cop aquest servei.</h3>
+                        <h4><span>- Paco Mermela /</span> Granollers</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                    <div class="clients-comments text-center">
+                        <img src="{{asset('public/frontend/images/persona3.png')}}" class="img-circle" alt="">
+                        <h3>He publicat un text i han contestat varis usuaris. Estic molt satisfeta.</h3>
+                        <h4><span>- María Galleta /</span> Sant Celoni</h4>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </section><!--/#feature-->
+{% endblock %}
