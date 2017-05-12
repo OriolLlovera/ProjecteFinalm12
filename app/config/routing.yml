@@ -18,4 +18,8 @@ fos_comment_api:
     type: rest
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
     prefix: /api
-    defaults: { _format: html }    
+    defaults: { _format: html }  
+#forum
+discutea_forum:
+    resource: "@DForumBundle/Resources/config/routing.yml"
+    prefix:   /      
