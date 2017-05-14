@@ -1,5 +1,15 @@
 
 /*ESTILS PERFIL CARD*/
+.margincard{
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.fonscard{
+    background: url(http://wallpapercave.com/wp/NIAnj0Q.jpg);
+    background: cover;
+}
+
 .card {
     padding-top: 20px;
     margin: 10px 0 20px 0;

@@ -50,7 +50,7 @@ class ProfileFormType extends AbstractType
             'constraints' => new UserPassword($constraintsOptions),
         ));
         
-        $this->addRolesToForm($builder);
+        // $this->addRolesToForm($builder); // COMENTAR PK NO PUGUI EL PROPI USUARI CANVIAR EL ROL
         
     }
     /**
