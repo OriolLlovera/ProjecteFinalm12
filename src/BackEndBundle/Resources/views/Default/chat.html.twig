@@ -1,0 +1,26 @@
+{% extends "BackEndBundle:Default:index.html.twig" %}
+{% block page_content %}
+{% if currentUser != null %}
+    <div id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}" >
+        <div id="belousovMessageZone"></div>
+        <div id="belousovFormZone">
+            {{ form_start(chatForm) }}
+    
+                {{ form_widget(chatForm.messageText) }}
+    
+                {{ form_errors(chatForm) }}
+    
+            {{ form_end(chatForm) }}
+        </div>
+    </div>
+    <div id="selectUser">
+        {% for user in users %}
+            {% if user.id != currentUser.id %}
+                <a href="" onclick="return false;" data-number="{{ user.id }}" class="changeUser" >{{ user.username }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Войдите на сайт, для доступа к чату</p>
+{% endif %}
+{% endblock %}

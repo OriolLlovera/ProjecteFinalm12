@@ -2,6 +2,11 @@ exchangeit_back_end_homepage:
     path:     /
     defaults: { _controller: BackEndBundle:Default:index }
 
+#XAT
+exchangeit_back_end_xat:
+    path:     /chat
+    defaults: { _controller: BackEndBundle:Chat:index }
+
 #USUARI
 exchangeit_back_end_usuari_edit:
     path:     /edit/{id}

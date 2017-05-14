@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new FrontEndBundle\FrontEndBundle(),
             new BackEndBundle\BackEndBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new belousovr\belousovChatBundle\belousovChatBundle(),
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),

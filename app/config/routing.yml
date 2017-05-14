@@ -23,3 +23,7 @@ fos_comment_api:
 discutea_forum:
     resource: "@DForumBundle/Resources/config/routing.yml"
     prefix:   /      
+#chat
+belousovr:
+     resource: "@belousovChatBundle/Controller"
+     type:     annotation    
