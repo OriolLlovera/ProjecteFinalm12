@@ -9,6 +9,9 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+footer{
+  width: 100% !important;
+}
 body {
   margin: 0;
 }

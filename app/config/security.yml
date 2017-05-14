@@ -6,7 +6,7 @@ security:
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
-        ROLE_MODERATOR: ROLE_MODERATOR
+        ROLE_TRANSLATOR: ROLE_TRANS
 
     providers:
         fos_userbundle:
@@ -31,3 +31,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/traductor/, role: ROLE_TRANS }
+        - { path: ^/backend/llistaUsuaris/, role: ROLE_ADMIN }

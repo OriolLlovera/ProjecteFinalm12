@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 class DefaultController extends Controller
@@ -106,6 +107,10 @@ class DefaultController extends Controller
 
 
     #LLISTES DADES
+
+     /**
+     * @Security("has_role('ROLE_ADMIN')")
+     */
 	public function llistaUsuarisAction()
 	{
 	    $llista = $this->getDoctrine()->getRepository('BackEndBundle:User')->findAll();
