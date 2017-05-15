@@ -1,4 +1,4 @@
-{% extends "BackEndBundle:Default:index.html.twig" %}
+{# {% extends "BackEndBundle:Default:index.html.twig" %}
 {% block page_content %}
 {% if currentUser != null %}
     <div id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}" >
@@ -21,6 +21,61 @@
         {% endfor %}
     </div>
 {% else %}
-    <p>Войдите на сайт, для доступа к чату</p>
+    <p>ERROR!</p>
 {% endif %}
+{% endblock %} #}
+
+{% extends "BackEndBundle:Default:index.html.twig" %}
+{% block page_content %}
+
+    {% if currentUser != null %}
+
+        <div class="container-fluid marginbotchat fonschat">
+            <div class="row">
+                <div class="col-md-5 col-md-push-3">
+                    <div class="panel panel-primary margintopchat">
+                        <div class="panel-heading" id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}">
+                            <span class="glyphicon glyphicon-comment"></span> Xat                    
+                        </div>
+                        <div class="panel-body bordechat" id="belousovMessageZone">
+                        </div>
+                       
+                        <div class="panel-footer bordechat" id="belousovFormZone">
+                            <div class="input-group">
+                               {{ form_start(chatForm) }}
+
+                               {{ form_widget(chatForm.messageText) }}
+
+                               {{ form_errors(chatForm) }}
+
+                               {{ form_end(chatForm) }}
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-2 col-md-push-3">
+                    <div class="panel panel-primary margintopchat">
+                        <div class="panel-heading" id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}">
+                            <span class="glyphicon glyphicon-user"></span> Usuaris                  
+                        </div>
+                        <div class="panel-body bordechat" id="belousovMessageZone">
+                            <div id="selectUser">
+                            {% for user in users %}
+                                {% if user.id != currentUser.id %}
+                                    <div class="row margintextchat">
+                                    <a href="" onclick="return false;" data-number="{{ user.id }}" class="changeUser" >{{ user.username }}</a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        </div> 
+                   </div>
+               </div>
+           </div>
+       </div>
+   {% endif %}
 {% endblock %}
+
+
+
+                        

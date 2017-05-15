@@ -9,7 +9,7 @@ $(document).ready(function(){
         var addressee = $('#belousovChat').attr('data-addressee');
         var url = $('form[name=chat]').attr('action');
         if (addressee == "" || message == "") {
-            alert('change dialog');
+            alert('Escull Usuari');
         }
         $.ajax({
             type: "POST",
