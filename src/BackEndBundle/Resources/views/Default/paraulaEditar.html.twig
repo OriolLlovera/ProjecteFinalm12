@@ -16,14 +16,33 @@
                     <div class="form-group">
                         <select name="catgramatical" class="form-control" id="catgramatical">
                             {% for catgramatical in categoriagramatical %}
-                                <option value="{{catgramatical.id}}">{{catgramatical.nom}}</option>
+                                {% if catgramatical.id == idCategoriaGramatical %}
+                                    <option value="{{catgramatical.id}}" selected>{{catgramatical.nom}}</option>
+                                {% else %}
+                                    <option value="{{catgramatical.id}}">{{catgramatical.nom}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
                         <select name="catfamilia" class="form-control" id="catfamilia">
                             {% for catfamilia in categoriafamilia %}
-                                <option value="{{catfamilia.id}}">{{catfamilia.nom}}</option>
+                                {% if catfamilia.id == idCategoriaFamilia %}
+                                    <option value="{{catfamilia.id}}" selected>{{catfamilia.nom}}</option>
+                                {% else %}
+                                    <option value="{{catfamilia.id}}">{{catfamilia.nom}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="idioma" class="form-control" id="idioma">
+                            {% for idioma in idioma %}
+                                {% if idioma.id == idIdioma %}
+                                    <option value="{{idioma.id}}" selected>{{idioma.nom}}</option>
+                                {% else %}
+                                    <option value="{{idioma.id}}">{{idioma.nom}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>

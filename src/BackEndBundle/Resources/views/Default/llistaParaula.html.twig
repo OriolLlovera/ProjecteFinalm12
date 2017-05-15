@@ -4,32 +4,83 @@
     <h4 class="text-center">{{ titol }}</h4>
     <div class="container">
         <div class="row">
+            <div class="col-xs-8 col-sm-4 col-md-4 col-lg-2">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtre per paraula">
+            </div>
+        </div>
+        <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaula') }}">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        Filtra per categoria gramatical: 
+                        <select name="catgramatical" class="form-control" id="catgramatical">
+                            <option value="0">Selecciona una categoria gramatical</option>
+                            {% for catgramatical in gramatical %}
+                                <option value="{{catgramatical.id}}">{{catgramatical.nom}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        Filtra per categoria familia: 
+                        <select name="catfamilia" class="form-control" id="catfamilia">
+                            <option value="0">Selecciona una categoria familia</option>
+                            {% for catfamilia in familia %}
+                                <option value="{{catfamilia.id}}">{{catfamilia.nom}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        Filtra per idioma: 
+                        <select name="idioma" class="form-control" id="idioma">
+                            <option value="0">Selecciona un idioma</option>
+                            {% for idioma in idioma %}
+                                <option value="{{idioma.id}}">{{idioma.nom}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra"></div>
+            </div>
+        </form>           
+        <div class="row" id="myDiv">
             {% for category in paraula %}
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="container-diccionari">
                         <div class="capa-blanca">
-                            <label>Paraula:</label>
-                            <span>{{ category.paraula|upper }}</span><br>
-                            <label>Cat. Gramatical:</label>
-                            {% if category.catgramatical != NULL %}
-                                <span>{{ category.catgramatical.nom }}</span><br>
-                            {% else %}
-                                <span>-</span><br>
-                            {% endif %}
-                            <label>Cat. Família:</label>
-                            {% if category.catfamilia != NULL %}
-                                <span>{{ category.catfamilia.nom }}</span><br>
-                            {% else %}
-                                <span>-</span><br>
-                            {% endif %}
-                            <label>Definició:</label>
-                            <span>{{ category.definicio }}</span><br>
-                            <span data-placement="top" data-toggle="tooltip" title="Editar">
-                                <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
-                            </span>
-                            <span data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
-                            </span>
+                            <ul class="paraules-inline">
+                                <label>Paraula:</label>
+                                <li>{{ category.paraula|upper }}</li><br>
+                                <label>Cat. Gramatical:</label>
+                                {% if category.catgramatical != NULL %}
+                                    <li>{{ category.catgramatical.nom }}</li><br>
+                                {% else %}
+                                    <li>-</li><br>
+                                {% endif %}
+                                <label>Cat. Família:</label>
+                                {% if category.catfamilia != NULL %}
+                                    <li>{{ category.catfamilia.nom }}</li><br>
+                                {% else %}
+                                    <li>-</li><br>
+                                {% endif %}
+                                <label>Idioma:</label>
+                                {% if category.idioma != NULL %}
+                                    <li>{{ category.idioma.nom }}</li><br>
+                                {% else %}
+                                    <li>-</li><br>
+                                {% endif %}
+                                <label>Definició:</label>
+                                <li>{{ category.definicio }}</li><br>
+                            </ul>
+                            <div class="icones-crud">
+                                <span data-placement="top" data-toggle="tooltip" title="Editar">
+                                    <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                                </span>
+                                <span data-placement="top" data-toggle="tooltip" title="Eliminar">
+                                    <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                                </span>
+                            </div>
                         </div>
                     </div>  
                 </div>
@@ -43,4 +94,72 @@
             </div>
         </div>
     </div>
+
+
+{% block javascripts %}
+   <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, div, ul, li, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDiv");
+        ul = div.getElementsByTagName("ul");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < ul.length; i++) {
+          li = ul[i].getElementsByTagName("li")[0];
+          if (li) {
+            if (li.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              ul[i].style.display = "";
+            } else {
+              ul[i].style.display = "none";
+            }
+          }
+        }
+      }
+  </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+   <script>
+
+ /*       // Declare variables
+        var input, filter, divgeneral, divparaula, span, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        divgeneral = document.getElementById("paraulaFiltre");
+        divparaula = divgeneral.getElementsById("container-diccionari");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < divparaula.length; i++) {
+          span = divparaula[i].getElementsByTagName("span")[0];
+          if (span) {
+            if (span.innerHTML.toUpperCase().indexOf(filter) > -0) {
+              divparaula[i].style.display = "";
+            } else {
+              divparaula[i].style.display = "none";
+            }
+          }
+        }
+      }*/
+  </script>
+
+-->
+
 {% endblock %}

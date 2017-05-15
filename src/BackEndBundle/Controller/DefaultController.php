@@ -5,6 +5,8 @@ use BackEndBundle\Entity\idioma;
 use BackEndBundle\Entity\catgramatical;
 use BackEndBundle\Entity\catfamilia;
 use BackEndBundle\Entity\Paraula;
+use BackEndBundle\Entity\traduccioparaula;
+use BackEndBundle\Entity\idioma;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -82,10 +84,28 @@ class DefaultController extends Controller
     public function llistaParaulaAction()
     {
         $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findAll();
+        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
+        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
+        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
 
         return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
             'titol' => 'Diccionari de Paraules',
-            'paraula' => $llista));
+            'paraula' => $llista,
+            'gramatical' => $llistaGramatical,
+            'familia' => $llistaFamilia,
+            'idioma' => $llistaIdioma
+            ));
+    }
+
+    #FILTRAR PARAULA
+    public function filtrarParaulaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return $this->forward('BackEndBundle:Default:llistaParaula');
+
+
+
     }
 
     #AFEGIR DADES IDIOMA
@@ -306,10 +326,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $paraula=$request->request->get('paraula');
 
-        $idCategoriaGramatical=$request->request->get('categoriagramatical');
-        $categoriagramatical = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaGramatical);
-        $idCategoriaFamilia=$request->request->get('categoriafamilia');
-        $categoriafamilia = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaFamilia);
+        $idCategoriaGramatical=$request->request->get('catgramatical');
+        $categoriagramatical = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idCategoriaGramatical);
+        $idCategoriaFamilia=$request->request->get('catfamilia');
+        $categoriafamilia = $em->getRepository('BackEndBundle:catfamilia')->findOneById($idCategoriaFamilia);
+        $idIdioma=$request->request->get('idioma');
+        $idioma = $em->getRepository('BackEndBundle:idioma')->findOneById($idIdioma);
 
         $definicio=$request->request->get('definicio');
 
@@ -320,6 +342,8 @@ class DefaultController extends Controller
         $Paraula->getCatgramatical($categoriagramatical);
         $Paraula->setCatfamilia($categoriafamilia);
         $Paraula->getCatfamilia($categoriafamilia);
+        $Paraula->setIdioma($idioma);
+        $Paraula->getIdioma($idioma);
 
         $Paraula->setDefinicio($definicio);
 
@@ -339,6 +363,8 @@ class DefaultController extends Controller
         $categoriagramatical = "";
         $catfamilia = $em->getRepository('BackEndBundle:catfamilia')->findAll();
         $categoriafamilia = "";
+        $idioma = $em->getRepository('BackEndBundle:idioma')->findAll();
+        $idiomes = "";
 
         $definicio="";
 
@@ -351,6 +377,9 @@ class DefaultController extends Controller
 
             'catfamilia' => $catfamilia,
             'categoriafamilia' => $categoriafamilia,
+
+            'idioma' => $idioma,
+            'idiomes' => $idiomes,
 
             'definicio' => $definicio
             )
@@ -365,15 +394,18 @@ class DefaultController extends Controller
         $Paraula =$em->getRepository('BackEndBundle:Paraula')->findOneById($id);
         
         $paraula=$request->request->get('paraula');
-        $idCategoriaGramatical=$request->request->get('categoriagramatical');
-        $idCategoriaFamilia=$request->request->get('categoriafamilia');
+        $idCategoriaGramatical=$request->request->get('catgramatical');
+        $idCategoriaFamilia=$request->request->get('catfamilia');
+        $idIdioma=$request->request->get('idioma');
         $definicio=$request->request->get('definicio');        
-        $categoriagramatical = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaGramatical);
-        $categoriafamilia = $em->getRepository('BackEndBundle:Paraula')->findOneById($idCategoriaFamilia);
+        $categoriaGramatical = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idCategoriaGramatical);
+        $categoriaFamilia = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idCategoriaFamilia);
+        $idiomes = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idIdioma);
 
         $Paraula->setParaula($paraula);
-        $Paraula->setCatgramatical($categoriagramatical);
-        $Paraula->setCatfamilia($categoriafamilia);
+        $Paraula->setCatgramatical($categoriaGramatical);
+        $Paraula->setCatfamilia($categoriaFamilia);
+        $Paraula->setIdioma($idiomes);
         $Paraula->setDefinicio($definicio);
 
         $em->persist($Paraula);
@@ -393,6 +425,8 @@ class DefaultController extends Controller
         $categoriagramatical = $em->getRepository('BackEndBundle:catgramatical')->findAll();
         $idCategoriaFamilia=$Paraula->getCatfamilia()->getId();
         $categoriafamilia = $em->getRepository('BackEndBundle:catfamilia')->findAll();
+        $idIdioma=$Paraula->getIdioma()->getId();
+        $idiomes = $em->getRepository('BackEndBundle:idioma')->findAll();
         $definicio=$Paraula->getDefinicio();
 
         return $this->render('BackEndBundle:Default:paraulaEditar.html.twig', array(
@@ -402,6 +436,8 @@ class DefaultController extends Controller
             'categoriagramatical' => $categoriagramatical,
             'idCategoriaFamilia' => $idCategoriaFamilia,
             'categoriafamilia' => $categoriafamilia,
+            'idIdioma' => $idIdioma,
+            'idiomes' => $idiomes,
             'definicio' => $definicio
             )
         );
@@ -417,5 +453,7 @@ class DefaultController extends Controller
         $em->flush();
         return $this->forward('BackEndBundle:Default:llistaParaula');
     }
+
+
 
 }
