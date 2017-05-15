@@ -4,7 +4,7 @@ exchangeit_back_end_homepage:
 
 #XAT
 exchangeit_back_end_xat:
-    path:     /chat
+    path:     /xat
     defaults: { _controller: BackEndBundle:Chat:index }
 
 #USUARI

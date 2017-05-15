@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ChatController extends Controller
 {
     /**
-     * @Route("/chat", name="chat")
+     * @Route("/xat", name="xat")
      */
     public function indexAction(Request $request)
     {
