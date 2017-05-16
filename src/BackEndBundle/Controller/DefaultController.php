@@ -96,65 +96,43 @@ class DefaultController extends Controller
     }
 
     #FILTRAR PARAULA
-    public function filtrarParaulaGramaticalAction(Request $request)
+    public function filtrarParaulaAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $paraulaId=$request->request->get('catgramatical');
+        $paraulagramatical=$request->request->get('catgramatical');
+        $paraulafamilia=$request->request->get('catfamilia');
+        $paraulaidioma=$request->request->get('idioma');
 
-        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByCategoriaGramatical($paraulaId);
+        $params = array();
+
+        if ($paraulagramatical != 0) {
+            $params['categoriaGramatical'] = $paraulagramatical;
+        }
+
+        if ($paraulafamilia != 0) {
+            $params['categoriaFamilia'] = $paraulafamilia;
+        }
+
+        if ($paraulaidioma != 0) {
+            $params['idioma'] = $paraulaidioma;
+        }
+
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findBy($params);
 
         $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
         $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
         $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
-
 
         return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
             'titol' => 'Diccionari de Paraules',
             'paraula' => $llista,
             'gramatical' => $llistaGramatical,
             'familia' => $llistaFamilia,
-            'idioma' => $llistaIdioma
-            ));
-    }
-    public function filtrarParaulaFamiliaAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $paraulaId=$request->request->get('catfamilia');
-
-        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByCategoriaFamilia($paraulaId);
-
-        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
-        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
-        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
-
-
-        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
-            'titol' => 'Diccionari de Paraules',
-            'paraula' => $llista,
-            'gramatical' => $llistaGramatical,
-            'familia' => $llistaFamilia,
-            'idioma' => $llistaIdioma
-            ));
-    }
-    public function filtrarParaulaIdiomaAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $paraulaId=$request->request->get('idioma');
-
-        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByIdioma($paraulaId);
-
-        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
-        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
-        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
-
-
-        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
-            'titol' => 'Diccionari de Paraules',
-            'paraula' => $llista,
-            'gramatical' => $llistaGramatical,
-            'familia' => $llistaFamilia,
-            'idioma' => $llistaIdioma
-            ));
+            'idioma' => $llistaIdioma,
+            'gramaticalselected' =>$paraulagramatical,
+            'familiaselected' =>$paraulafamilia,
+            'idiomaselected' =>$paraulaidioma
+        ));
     }
 
     #AFEGIR DADES IDIOMA

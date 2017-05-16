@@ -9,48 +9,55 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulagramatical') }}">
+            <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaula') }}">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                
                     <div class="form-group">
                         Filtra per categoria gramatical: 
                         <select name="catgramatical" class="form-control" id="catgramatical">
                             <option value="0">Selecciona una categoria gramatical</option>
                             {% for catgramatical in gramatical %}
-                                <option value="{{catgramatical.id}}">{{catgramatical.nom}}</option>
+                                {% if catgramatical.id == gramaticalselected %}
+                                    <option value="{{catgramatical.id}}" selected>{{catgramatical.nom}}</option>
+                                {% else %}
+                                    <option value="{{catgramatical.id}}">{{catgramatical.nom}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
-                    </div>
-                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Cat. Gramatical"></div>
-                </form>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulafamilia') }}">
+                    </div>                
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="form-group">
                         Filtra per categoria familia: 
                         <select name="catfamilia" class="form-control" id="catfamilia">
                             <option value="0">Selecciona una categoria familia</option>
                             {% for catfamilia in familia %}
-                                <option value="{{catfamilia.id}}">{{catfamilia.nom}}</option>
+                                {% if catfamilia.id == familiaselected %}
+                                    <option value="{{catfamilia.id}}" selected>{{catfamilia.nom}}</option>
+                                {% else %}
+                                    <option value="{{catfamilia.id}}">{{catfamilia.nom}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Cat. Familia"></div>
-                </form>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulaidioma') }}">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="form-group">
                         Filtra per idioma: 
                         <select name="idioma" class="form-control" id="idioma">
                             <option value="0">Selecciona un idioma</option>
                             {% for idioma in idioma %}
-                                <option value="{{idioma.id}}">{{idioma.nom}}</option>
+                                {% if idioma.id == idiomaselected %}
+                                    <option value="{{idioma.id}}" selected>{{idioma.nom}}</option>
+                                {% else %}
+                                    <option value="{{idioma.id}}">{{idioma.nom}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Idiomes"></div>
-                </form>
-            </div>
+                </div>
+                <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra"></div>
+            </form>
         </div>
     </div>
     <div class="container">
@@ -106,18 +113,17 @@
             </div>
         </div>
     </div>
-
-
 {% block javascripts %}
    <script>
       function myFunction() {
-        // Declare variables
+        // Declarem variables pels elements
         var input, filter, div, ul, li, i;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         div = document.getElementById("myDiv");
         ul = div.getElementsByTagName("ul");
 
+        // Bucle per filtrar el contingut de la posició 0 (paraula)
         for (i = 0; i < ul.length; i++) {
           li = ul[i].getElementsByTagName("li")[0];
           if (li) {
@@ -131,46 +137,5 @@
       }
   </script>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-   <script>
-
- /*       // Declare variables
-        var input, filter, divgeneral, divparaula, span, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        divgeneral = document.getElementById("paraulaFiltre");
-        divparaula = divgeneral.getElementsById("container-diccionari");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < divparaula.length; i++) {
-          span = divparaula[i].getElementsByTagName("span")[0];
-          if (span) {
-            if (span.innerHTML.toUpperCase().indexOf(filter) > -0) {
-              divparaula[i].style.display = "";
-            } else {
-              divparaula[i].style.display = "none";
-            }
-          }
-        }
-      }*/
-  </script>
-
--->
 
 {% endblock %}

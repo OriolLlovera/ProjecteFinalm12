@@ -87,6 +87,14 @@ ul.paraules-inline label, ul.paraules-inline li {
     display: inline;
 }
 
+.botons-llista-idioma {
+    width: 10%;
+}
+
+.nom-llista-idioma {
+    width: 80%;
+}
+
 /* Footer */
 footer {
     margin: 50px 0;
