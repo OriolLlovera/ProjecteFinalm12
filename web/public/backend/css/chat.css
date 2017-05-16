@@ -1,6 +1,7 @@
 .fonschat{
     background: url("https://wallpaperscraft.com/image/street_city_evening_black_white_lights_buildings_hdr_25485_1920x1080.jpg");
     background: cover;
+    width:100%;
 }
 .bordechat{
    border: 2px solid grey;

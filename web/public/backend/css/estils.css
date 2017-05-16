@@ -1,3 +1,27 @@
+/*COLOR USUARI CHAT*/
+.colorchatuser1{
+    color: #C9302C;
+}
+.colorchatuser2{
+    color: #286090;
+}
+/*FLOATS CHAT*/
+.floatuser1{
+    text-align: right;
+}
+/*Paddings chat*/
+.paddingchat{
+    background-color:#FAFAFA;
+    padding: 5px;
+    border-radius:5px;
+
+}
+
+/*ESTIL LLISTA*/
+.margintopfooterllista{
+    margin-top: 60px;
+}
+
 
 /*ESTILS PERFIL CARD*/
 .margincard{

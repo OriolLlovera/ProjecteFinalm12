@@ -38,12 +38,12 @@ $(document).ready(function(){
                 if (resp.error === undefined){
                     var html;
                     resp.forEach(function (item) {
-                        if (item.author.id == user_id){
-                            html = '<p class="mainUser">'+ item.messageText +'</p>';
+                          if (item.author.id == user_id){
+                            html = '<p class="mainUser floatuser1 "><span class="paddingchat"><b class="colorchatuser1">'+ item.author.username +":</b> " + item.messageText +'</span></p>';
                             $('#belousovMessageZone').append(html);
                         }
                         if (item.addressee.id == user_id){
-                            html = '<p class="secondUser">'+ item.messageText +'</p>';
+                            html = '<p class="secondUser"><span class="paddingchat"><b class="colorchatuser2">'+ item.author.username +":</b> " + item.messageText +'</span></p>';
                             $('#belousovMessageZone').append(html);
                         }
                     });
@@ -82,11 +82,11 @@ $(document).ready(function(){
                 if (response) {
                     response.forEach(function (item) {
                         if (item.author.id == user_id){
-                            html = '<p class="mainUser">'+ item.messageText +'</p>';
+                            html = '<p class="mainUser floatuser1 "><span class="paddingchat"><b class="colorchatuser1">'+ item.author.username +":</b> " + item.messageText +'</span></p>';
                             $('#belousovMessageZone').append(html);
                         }
                         if (item.addressee.id == user_id){
-                            html = '<p class="secondUser">'+ item.messageText +'</p>';
+                            html = '<p class="secondUser"><span class="paddingchat"><b class="colorchatuser2">'+ item.author.username +":</b> " + item.messageText +'</span></p>';
                             $('#belousovMessageZone').append(html);
                         }
                     });
