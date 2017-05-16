@@ -38,9 +38,17 @@ exchangeit_back_end_llistaParaula:
     defaults: { _controller: BackEndBundle:Default:llistaParaula }
 
 #FILTRAR PARAULA
-exchangeit_back_end_filtrarparaula:
-    path:     /filtrarparaula
-    defaults: { _controller: BackEndBundle:Default:filtrarParaula }
+exchangeit_back_end_filtrarparaulagramatical:
+    path:     /filtrarparaulagramatical
+    defaults: { _controller: BackEndBundle:Default:filtrarParaulaGramatical }
+
+exchangeit_back_end_filtrarparaulafamilia:
+    path:     /filtrarparaulafamilia
+    defaults: { _controller: BackEndBundle:Default:filtrarParaulaFamilia }
+
+exchangeit_back_end_filtrarparaulaidioma:
+    path:     /filtrarparaulaidioma
+    defaults: { _controller: BackEndBundle:Default:filtrarParaulaIdioma }
 
 #---------------------------IDIOMA----------------------------
 

@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <select name="idioma" class="form-control" id="idioma">
-                            {% for idioma in idioma %}
+                            {% for idioma in idiomes %}
                                 {% if idioma.id == idIdioma %}
                                     <option value="{{idioma.id}}" selected>{{idioma.nom}}</option>
                                 {% else %}

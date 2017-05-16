@@ -8,10 +8,10 @@
               <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtre per paraula">
             </div>
         </div>
-        <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaula') }}">
-            <div class="row">
-                <div class="form-group">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulagramatical') }}">
+                    <div class="form-group">
                         Filtra per categoria gramatical: 
                         <select name="catgramatical" class="form-control" id="catgramatical">
                             <option value="0">Selecciona una categoria gramatical</option>
@@ -20,7 +20,12 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Cat. Gramatical"></div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulafamilia') }}">
+                    <div class="form-group">
                         Filtra per categoria familia: 
                         <select name="catfamilia" class="form-control" id="catfamilia">
                             <option value="0">Selecciona una categoria familia</option>
@@ -29,7 +34,12 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Cat. Familia"></div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <form method="POST" action="{{ path('exchangeit_back_end_filtrarparaulaidioma') }}">
+                    <div class="form-group">
                         Filtra per idioma: 
                         <select name="idioma" class="form-control" id="idioma">
                             <option value="0">Selecciona un idioma</option>
@@ -38,18 +48,18 @@
                             {% endfor %}
                         </select>
                     </div>
-                </div>
+                    <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra Idiomes"></div>
+                </form>
             </div>
-            <div class="row">
-                <div class="text-center"><input class="btn btn-default" type="submit" name="submit" value="Filtra"></div>
-            </div>
-        </form>           
+        </div>
+    </div>
+    <div class="container">
         <div class="row" id="myDiv">
             {% for category in paraula %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="container-diccionari">
-                        <div class="capa-blanca">
-                            <ul class="paraules-inline">
+                <ul class="paraules-inline">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="container-diccionari">
+                            <div class="capa-blanca">
                                 <label>Paraula:</label>
                                 <li>{{ category.paraula|upper }}</li><br>
                                 <label>Cat. Gramatical:</label>
@@ -72,18 +82,20 @@
                                 {% endif %}
                                 <label>Definició:</label>
                                 <li>{{ category.definicio }}</li><br>
-                            </ul>
-                            <div class="icones-crud">
-                                <span data-placement="top" data-toggle="tooltip" title="Editar">
-                                    <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
-                                </span>
-                                <span data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                    <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
-                                </span>
+                                {% if is_granted('ROLE_USER') %}
+                                    <div class="icones-crud">
+                                        <span data-placement="top" data-toggle="tooltip" title="Editar">
+                                            <a href="{{ path('exchangeit_back_end_form_editarparaula', {'id':category.id}) }}" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></a>
+                                        </span>
+                                        <span data-placement="top" data-toggle="tooltip" title="Eliminar">
+                                            <a href="{{ path('exchangeit_back_end_esborrarparaula', {'id':category.id}) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                                        </span>
+                                    </div>
+                                {% endif %}
                             </div>
-                        </div>
-                    </div>  
-                </div>
+                        </div>  
+                    </div>
+                </ul>
             {% endfor %}
         </div>
     </div>
@@ -106,7 +118,6 @@
         div = document.getElementById("myDiv");
         ul = div.getElementsByTagName("ul");
 
-        // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < ul.length; i++) {
           li = ul[i].getElementsByTagName("li")[0];
           if (li) {

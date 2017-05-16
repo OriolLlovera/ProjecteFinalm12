@@ -5,8 +5,6 @@ use BackEndBundle\Entity\idioma;
 use BackEndBundle\Entity\catgramatical;
 use BackEndBundle\Entity\catfamilia;
 use BackEndBundle\Entity\Paraula;
-use BackEndBundle\Entity\traduccioparaula;
-use BackEndBundle\Entity\idioma;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -98,14 +96,65 @@ class DefaultController extends Controller
     }
 
     #FILTRAR PARAULA
-    public function filtrarParaulaAction(Request $request)
+    public function filtrarParaulaGramaticalAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $paraulaId=$request->request->get('catgramatical');
 
-        return $this->forward('BackEndBundle:Default:llistaParaula');
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByCategoriaGramatical($paraulaId);
+
+        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
+        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
+        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
 
 
+        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
+            'titol' => 'Diccionari de Paraules',
+            'paraula' => $llista,
+            'gramatical' => $llistaGramatical,
+            'familia' => $llistaFamilia,
+            'idioma' => $llistaIdioma
+            ));
+    }
+    public function filtrarParaulaFamiliaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $paraulaId=$request->request->get('catfamilia');
 
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByCategoriaFamilia($paraulaId);
+
+        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
+        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
+        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
+
+
+        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
+            'titol' => 'Diccionari de Paraules',
+            'paraula' => $llista,
+            'gramatical' => $llistaGramatical,
+            'familia' => $llistaFamilia,
+            'idioma' => $llistaIdioma
+            ));
+    }
+    public function filtrarParaulaIdiomaAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $paraulaId=$request->request->get('idioma');
+
+        $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findByIdioma($paraulaId);
+
+        $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
+        $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
+        $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
+
+
+        return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
+            'titol' => 'Diccionari de Paraules',
+            'paraula' => $llista,
+            'gramatical' => $llistaGramatical,
+            'familia' => $llistaFamilia,
+            'idioma' => $llistaIdioma
+            ));
     }
 
     #AFEGIR DADES IDIOMA
@@ -333,9 +382,11 @@ class DefaultController extends Controller
         $idIdioma=$request->request->get('idioma');
         $idioma = $em->getRepository('BackEndBundle:idioma')->findOneById($idIdioma);
 
+
         $definicio=$request->request->get('definicio');
 
         $Paraula = new Paraula();
+
         $Paraula->setParaula($paraula);
 
         $Paraula->setCatgramatical($categoriagramatical);
@@ -344,12 +395,12 @@ class DefaultController extends Controller
         $Paraula->getCatfamilia($categoriafamilia);
         $Paraula->setIdioma($idioma);
         $Paraula->getIdioma($idioma);
-
+       
         $Paraula->setDefinicio($definicio);
 
         $em->persist($Paraula);
         $em->flush();
-
+       
         return $this->forward('BackEndBundle:Default:llistaParaula');
     }
 
@@ -358,7 +409,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $paraula = "";
-        
+
         $catgramatical = $em->getRepository('BackEndBundle:catgramatical')->findAll();
         $categoriagramatical = "";
         $catfamilia = $em->getRepository('BackEndBundle:catfamilia')->findAll();
@@ -368,7 +419,6 @@ class DefaultController extends Controller
 
         $definicio="";
 
-    
         return $this->render('BackEndBundle:Default:paraula.html.twig', array(
             'paraula' => $paraula,
 
@@ -399,8 +449,8 @@ class DefaultController extends Controller
         $idIdioma=$request->request->get('idioma');
         $definicio=$request->request->get('definicio');        
         $categoriaGramatical = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idCategoriaGramatical);
-        $categoriaFamilia = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idCategoriaFamilia);
-        $idiomes = $em->getRepository('BackEndBundle:catgramatical')->findOneById($idIdioma);
+        $categoriaFamilia = $em->getRepository('BackEndBundle:catfamilia')->findOneById($idCategoriaFamilia);
+        $idiomes = $em->getRepository('BackEndBundle:idioma')->findOneById($idIdioma);
 
         $Paraula->setParaula($paraula);
         $Paraula->setCatgramatical($categoriaGramatical);
@@ -441,7 +491,6 @@ class DefaultController extends Controller
             'definicio' => $definicio
             )
         );
-        
     } 
 
     #ESBORRAR PARAULA
@@ -453,7 +502,5 @@ class DefaultController extends Controller
         $em->flush();
         return $this->forward('BackEndBundle:Default:llistaParaula');
     }
-
-
 
 }

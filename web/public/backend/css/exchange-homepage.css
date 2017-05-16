@@ -38,6 +38,9 @@ ul, ol {
     top:0px;
 }
 
+ul {
+    z-index: 1;
+}
 
 /* Content */
 body {
