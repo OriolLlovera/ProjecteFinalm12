@@ -35,12 +35,12 @@
                 <div class="col-md-5 col-md-push-3">
                     <div class="panel panel-primary margintopchat">
                         <div class="panel-heading" id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}">
-                            <span class="glyphicon glyphicon-comment"></span> Xat                    
+                            <span class="glyphicon glyphicon-comment"></span><b> Xat</b>                    
                         </div>
                         <div class="panel-body bordechat" id="belousovMessageZone">
                         </div>
                        
-                        <div class="panel-footer bordechat" id="belousovFormZone">
+                        <div class="panel-footer bordechat" class="target" id="belousovFormZone">
                             <div class="input-group">
                                {{ form_start(chatForm) }}
 
@@ -56,7 +56,7 @@
                <div class="col-md-2 col-md-push-3">
                     <div class="panel panel-primary margintopchat">
                         <div class="panel-heading" id="belousovChat" data-author="{{ currentUser.id }}" data-addressee="" data-action="{{ getMessageUrl }}">
-                            <span class="glyphicon glyphicon-user"></span> Usuaris                  
+                            <span class="glyphicon glyphicon-user"></span><b> Usuaris</b>
                         </div>
                         <div class="panel-body bordechat" id="belousovMessageZone">
                             <div id="selectUser">
