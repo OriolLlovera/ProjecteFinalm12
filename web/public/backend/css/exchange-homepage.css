@@ -47,6 +47,30 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.navbar-inverse {
+    margin-bottom: 0;
+}
+
+.fons-diccionari {
+    background: url('../images/fonsparaula.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+.fons-gramatical {
+    background: url('../images/fonsgramatical.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+.lletra-blanca {
+    color: white;
+}
+
 .container-diccionari {
     margin: 1%;
     padding: 1%;

@@ -79,19 +79,25 @@ class DefaultController extends Controller
             'catgramatical' => $llista));
     }
 
-    public function llistaParaulaAction()
+    public function llistaParaulaAction(Request $request)
     {
         $llista = $this->getDoctrine()->getRepository('BackEndBundle:Paraula')->findAll();
         $llistaGramatical = $this->getDoctrine()->getRepository('BackEndBundle:catgramatical')->findAll();
         $llistaFamilia = $this->getDoctrine()->getRepository('BackEndBundle:catfamilia')->findAll();
         $llistaIdioma = $this->getDoctrine()->getRepository('BackEndBundle:idioma')->findAll();
+        $paraulagramatical=$request->request->get('catgramatical');
+        $paraulafamilia=$request->request->get('catfamilia');
+        $paraulaidioma=$request->request->get('idioma');
 
         return $this->render('BackEndBundle:Default:llistaParaula.html.twig', array(
             'titol' => 'Diccionari de Paraules',
             'paraula' => $llista,
             'gramatical' => $llistaGramatical,
             'familia' => $llistaFamilia,
-            'idioma' => $llistaIdioma
+            'idioma' => $llistaIdioma,
+            'gramaticalselected' =>$paraulagramatical,
+            'familiaselected' =>$paraulafamilia,
+            'idiomaselected' =>$paraulaidioma
             ));
     }
 
