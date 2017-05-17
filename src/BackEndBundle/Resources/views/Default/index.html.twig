@@ -17,26 +17,26 @@
     <link href="{{ asset('public/backend/css/bootstrap.css') }}" rel="stylesheet">
 
 {#     <link href="{{ asset('public/backend/css/shop-homepage.css') }}" rel="stylesheet">
- #}
-    <link href="{{ asset('public/backend/css/usuaris.css') }}" rel="stylesheet">
+#}
+<link href="{{ asset('public/backend/css/usuaris.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('public/backend/css/login.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/backend/css/chat.css') }}" rel="stylesheet">         
+<link href="{{ asset('public/backend/css/login.css') }}" rel="stylesheet">
+<link href="{{ asset('public/backend/css/chat.css') }}" rel="stylesheet">         
 
-    <link href="{{ asset('public/backend/css/estilsuserllista.css') }}" rel="stylesheet"> 
-     <link href="{{ asset('public/backend/css/estils.css') }}" rel="stylesheet">
+<link href="{{ asset('public/backend/css/estilsuserllista.css') }}" rel="stylesheet"> 
+<link href="{{ asset('public/backend/css/estils.css') }}" rel="stylesheet">
 
-     <link href="{{ asset('public/backend/css/footer.css') }}" rel="stylesheet"> 
-    
+<link href="{{ asset('public/backend/css/footer.css') }}" rel="stylesheet"> 
+<link href="{{ asset('public/backend/css/estilsinici.css') }}" rel="stylesheet"> 
 
 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 
-    <!-- Select2 -->
+<!-- Select2 -->
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
-    
-  {% endblock %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> 
+
+{% endblock %}
 
 </head>
 
@@ -61,12 +61,12 @@
             <ul class="nav navbar-nav">
 
               {% if is_granted('ROLE_ADMIN') %}
-              <li>
+                <li>
 
-                <a href="{{path('exchangeit_back_end_llistaUsuaris')}}">Usuaris</a>
+                  <a href="{{path('exchangeit_back_end_llistaUsuaris')}}">Usuaris</a>
 
-              </li>
-            {% endif %}
+                </li>
+              {% endif %}
 
               <li>
 
@@ -86,7 +86,7 @@
 
              </li>
 
-              <li>
+             <li>
 
                <a href="{{path('exchangeit_back_end_xat')}}">Xat Usuaris</a><br>
 
@@ -102,114 +102,187 @@
 
               <li>
 
-                 <a href="{{path('exchangeit_back_end_usuari_edit',{'id':app.user.id})}}"><b> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</b></a>
+               <a href="{{path('exchangeit_back_end_usuari_edit',{'id':app.user.id})}}"><b> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</b></a>
 
-              </li>
+             </li>
 
-              <li>
+             <li>
 
-                <a href="{{ path('fos_user_security_logout') }}">
+              <a href="{{ path('fos_user_security_logout') }}">
 
-                    <b>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</b>
+                <b>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</b>
 
-                </a>
+              </a>
 
-              </li>
+            </li>
 
-              {% else %}
+          {% else %}
 
-                <li>               
+            <li>               
 
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+              <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
-              </li>
+            </li>
 
-               {% endif %}
+          {% endif %}
 
-          </ul>
-
-        </div>
+        </ul>
 
       </div>
 
-    </nav>
+    </div>
 
-  {% endblock %}
+  </nav>
 
-  {% block page_content %}
+{% endblock %}
 
-    <div class="container-fluid">
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-         <h4>Idiomes</h4>
-         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget tellus sit amet leo pharetra iaculis vitae id nibh. Aliquam in est porttitor, eleifend nisi id, iaculis nunc. Curabitur et velit neque. Nam imperdiet vehicula lorem, nec convallis dolor laoreet eget. Sed quis scelerisque libero, quis pharetra metus. Vestibulum tempus non purus vel congue. Morbi non mauris tempus, venenatis eros interdum, lobortis ante. Quisque nec urna sit amet augue aliquam ornare. Sed interdum, neque et pellentesque fringilla, nibh lacus rhoncus elit, vel interdum ligula dui ut nisl. Nam non turpis ac turpis pharetra suscipit quis eu dolor. Fusce tempus risus tristique nunc varius, non semper diam mollis. Curabitur consequat in risus non gravida.
-
-Nam sed felis diam. Aenean tincidunt ut nunc vitae tristique. In aliquam et nunc sed vulputate. Quisque rhoncus tortor eu nisi eleifend, interdum mollis massa vulputate. Nulla finibus nisl sed feugiat consequat. Phasellus feugiat mi at orci blandit varius. Donec enim magna, feugiat quis commodo non, tincidunt eu sapien. Pellentesque aliquam massa eget dapibus vehicula. Fusce lobortis bibendum lectus, sed hendrerit lorem lacinia non. Pellentesque dictum erat in dolor sollicitudin eleifend.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget tellus sit amet leo pharetra iaculis vitae id nibh. Aliquam in est porttitor, eleifend nisi id, iaculis nunc. Curabitur et velit neque. Nam imperdiet vehicula lorem, nec convallis dolor laoreet eget. Sed quis scelerisque libero, quis pharetra metus. Vestibulum tempus non purus vel congue. Morbi non mauris tempus, venenatis eros interdum, lobortis ante. Quisque nec urna sit amet augue aliquam ornare. Sed interdum, neque et pellentesque fringilla, nibh lacus rhoncus elit, vel interdum ligula dui ut nisl. Nam non turpis ac turpis pharetra suscipit quis eu dolor. Fusce tempus risus tristique nunc varius, non semper diam mollis. Curabitur consequat in risus non gravida.
-
-Nam sed felis diam. Aenean tincidunt ut nunc vitae tristique. In aliquam et nunc sed vulputate. Quisque rhoncus tortor eu nisi eleifend, interdum mollis massa vulputate. Nulla finibus nisl sed feugiat consequat. Phasellus feugiat mi at orci blandit varius. Donec enim magna, feugiat quis commodo non, tincidunt eu sapien. Pellentesque aliquam massa eget dapibus vehicula. Fusce lobortis bibendum lectus, sed hendrerit lorem lacinia non. Pellentesque dictum erat in dolor sollicitudin eleifend.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget tellus sit amet leo pharetra iaculis vitae id nibh. Aliquam in est porttitor, eleifend nisi id, iaculis nunc. Curabitur et velit neque. Nam imperdiet vehicula lorem, nec convallis dolor laoreet eget. Sed quis scelerisque libero, quis pharetra metus. Vestibulum tempus non purus vel congue. Morbi non mauris tempus, venenatis eros interdum, lobortis ante. Quisque nec urna sit amet augue aliquam ornare. Sed interdum, neque et pellentesque fringilla, nibh lacus rhoncus elit, vel interdum ligula dui ut nisl. Nam non turpis ac turpis pharetra suscipit quis eu dolor. Fusce tempus risus tristique nunc varius, non semper diam mollis. Curabitur consequat in risus non gravida.
-
-Nam sed felis diam. Aenean tincidunt ut nunc vitae tristique. In aliquam et nunc sed vulputate. Quisque rhoncus tortor eu nisi eleifend, interdum mollis massa vulputate. Nulla finibus nisl sed feugiat consequat. Phasellus feugiat mi at orci blandit varius. Donec enim magna, feugiat quis commodo non, tincidunt eu sapien. Pellentesque aliquam massa eget dapibus vehicula. Fusce lobortis bibendum lectus, sed hendrerit lorem lacinia non. Pellentesque dictum erat in dolor sollicitudin eleifend. </p>
-        
-
-       </div>
-
-     </div>
-
-   </div>
- {% endblock %}
-
-
-  <!-- Footer -->
-
- <footer id="myFooter">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 myCols">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 myCols">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
+{% block page_content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- begin panel group -->
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          
+          <!-- panel 1 -->
+          <div class="panel panel-default">
+            <!--wrap panel heading in span to trigger image change as well as collapse -->
+            <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
+              <div class="panel-heading" role="tab" id="headingOne"data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h4 class="panel-title"><b>Català</b></h4>
+              </div>
+            </span>
+            
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <!-- Tab content goes here -->
+                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
+                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
+                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+              </div>
             </div>
-        </div>
-        <div class="social-networks">
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
-            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2017 ExchangeIt </p>
-        </div>
-    </footer>
+          </div> 
+          <!-- / panel 1 -->
+          
+          <!-- panel 2 -->
+          <div class="panel panel-default">
+            <!--wrap panel heading in span to trigger image change as well as collapse -->
+            <span class="side-tab" data-target="#tab2" data-toggle="tab" role="tab" aria-expanded="false">
+              <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h4 class="panel-title collapsed"><b>Castellà</b></h4>
+              </div>
+            </span>
+
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
+                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
+                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+              </div>
+            </div>
+          </div>
+          <!-- / panel 2 -->
+          
+          <!--  panel 3 -->
+          <div class="panel panel-default">
+            <!--wrap panel heading in span to trigger image change as well as collapse -->
+            <span class="side-tab" data-target="#tab3" data-toggle="tab" role="tab" aria-expanded="false">
+              <div class="panel-heading" role="tab" id="headingThree"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <h4 class="panel-title"><b>Anglès</b></h4>
+              </div>
+            </span>
+
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
+                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
+                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+              </div>
+            </div>
+          </div>
+        </div> <!-- / panel-group -->
+        
+      </div> <!-- /col-md-4 -->
+      
+      <div class="col-md-8">
+        <!-- begin macbook pro mockup -->
+        <div class="md-macbook-pro md-glare">
+          <div class="md-lid">
+            <div class="md-camera"></div>
+            <div class="md-screen">
+              <!-- content goes here -->                
+              <div class="tab-featured-image">
+                <div class="tab-content">
+                  <div class="tab-pane  in active" id="tab1">
+                    <img src="https://ununsplash.imgix.net/photo-1417024321782-1375735f8987?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950" alt="tab1" class="img img-responsive">
+                  </div>
+                  <div class="tab-pane " id="tab2">
+                    
+                    <img src="https://unsplash.imgix.net/uploads/1411724908903377d4696/2e9b0cb2?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950">
+                    
+                  </div>
+                  <div class="tab-pane fade" id="tab3">
+                    
+                    <img src="https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950" alt="tab1" class="img img-responsive">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md-base"></div>
+        </div> <!-- end macbook pro mockup -->
+      </div> <!-- / .col-md-8 -->
+    </div> <!--/ .row -->
+  </div> <!-- end sidetab container -->
+{% endblock %}
+
+<!-- Footer -->
+
+<footer id="myFooter">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 myCols">
+        <h5>Get started</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Sign up</a></li>
+          <li><a href="#">Downloads</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 myCols">
+        <h5>About us</h5>
+        <ul>
+          <li><a href="#">Company Information</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 myCols">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Help desk</a></li>
+          <li><a href="#">Forums</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 myCols">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="social-networks">
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <p>© 2017 ExchangeIt </p>
+  </div>
+</footer>
 
 
 
@@ -229,18 +302,21 @@ Nam sed felis diam. Aenean tincidunt ut nunc vitae tristique. In aliquam et nunc
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script type="text/javascript">
-$("selectRol").select2({
-  tags: true,
-  tokenSeparators: [',', ' ']
-})
+
+  <script src="{{ asset('public/backend/js/scriptcarousel.js') }}"></script>
+
+  <script type="text/javascript">
+    $("selectRol").select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+    })
   </script>
   <script type="text/javascript">
-  $(function() {
-    $("target").sticky({
+    $(function() {
+      $("target").sticky({
       speed: 0 // The scroll animation speed
     });
-  });
+    });
   </script>
 
 {% endblock %}

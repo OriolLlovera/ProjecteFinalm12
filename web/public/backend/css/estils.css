@@ -1,3 +1,8 @@
+.alturaformedit{
+    height: 100%;
+     overflow:hidden;
+     
+}
 /*COLOR USUARI CHAT*/
 .colorchatuser1{
     color: #C9302C;
@@ -286,6 +291,7 @@
         background-color: #444;
         background:url("https://images3.alphacoders.com/115/115129.jpg");
         background-size: cover;       
+        width: 100%;        
     }
     .form-signin input[type="text"] {
         margin-bottom: 5px;

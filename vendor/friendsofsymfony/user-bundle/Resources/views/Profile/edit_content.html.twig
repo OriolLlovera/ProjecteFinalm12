@@ -15,8 +15,8 @@
 			</div>
 		</div>
 	</div>
-	#}
-	{% extends "BackEndBundle:Default:index.html.twig" %}
+	#}	
+
 		 {% block navigation %}
 		 	 {% endblock %}
 		{% block page_content %}
@@ -29,7 +29,7 @@
 									<img src="http://s11.postimg.org/7kzgji28v/logo_sm_2_mr_1.png" class="img-responsive" alt="Conxole Admin"/>
 								</div>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body alturaformedit">
 								<h2 class="text-center">Edita Perfil</h2>
 								{% for flashMessage in app.session.flashbag.get('notice') %}
 									<div class="alert alert-{{ flashMessage.type }}">
@@ -49,10 +49,13 @@
 									</div>
 									{{ form_end(form) }} 
 								</div>
+
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
 	{% endblock %}
+
