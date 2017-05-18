@@ -11,6 +11,7 @@ parameters:
     locale: ca
 
 framework:
+    http_method_override: true
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -62,6 +63,12 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        # FORUM
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        resolve_target_entities:
+            Symfony\Component\Security\Core\User\UserInterface: BackEndBundle\Entity\User
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -78,3 +85,74 @@ fos_user:
     from_email:
         address: admin@admin.com
         sender_name: You
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: BackEndBundle\Entity\Comment
+            thread: BackEndBundle\Entity\Thread
+            vote: BackEndBundle\Entity\Vote      
+    
+    acl: true
+    service:
+        acl:
+            thread:  fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+            vote:    fos_comment.acl.vote.roles
+        manager:
+            thread:  fos_comment.manager.thread.acl
+            comment: fos_comment.manager.comment.acl
+            vote:    fos_comment.manager.vote.acl
+            
+    acl_roles:
+        comment:
+            create: ROLE_USER 
+            view: ROLE_USER
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        thread:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: ROLE_USER
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
+        vote:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN       
+assetic:
+  bundles: [ "FOSCommentBundle","DForumBundle"  ]  
+  
+
+# Stof Doctrine Extensions
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+
+# Configuration for knp paginator: don't forget to customize page_name
+knp_paginator:
+    page_range: 3
+    default_options:
+        page_name: FORUM
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+
+# Configuration for discutea forum
+discutea_forum:
+    preview:
+        enabled: true
+    knp_paginator:
+        page_name: FORUM  #see knp_paginator.default_option.page_name
+        topics:
+            enabled: true
+            per_page: 10
+        posts:
+            enabled: true
+            per_page: 10      
+  

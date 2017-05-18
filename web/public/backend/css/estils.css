@@ -1,151 +1,50 @@
-/***********************
-********* Footer ******
-************************/
-#bottom {
-  background: #f5f5f5;
-  border-bottom: 5px solid #c32026 ;
-  font-size: 14px;
+/*Imatge Inici Fons*/
+.fonsback{
+    background: url(http://wallpapercave.com/wp/NIAnj0Q.jpg);
+    background: cover;
+    width: 100%;
 }
 
-#bottom h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-size:22px;
-  color: #000;
+.alturaformedit{
+    height: 100%;
+     overflow:hidden;
+     
+}
+/*COLOR USUARI CHAT*/
+.colorchatuser1{
+    color: #C9302C;
+}
+.colorchatuser2{
+    color: #286090;
+}
+/*FLOATS CHAT*/
+.floatuser1{
+    text-align: right;
+}
+/*Paddings chat*/
+.paddingchat{
+    background-color:#FAFAFA;
+    padding: 5px;
+    border-radius:5px;
+
 }
 
-#bottom ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/*ESTIL LLISTA*/
+.margintopfooterllista{
+    margin-top: 60px;
 }
 
-#bottom ul li {
-  display: block;
-  padding: 5px 0;
-}
 
-#bottom ul li a {
-  color: #808080;
-}
-
-#bottom ul li a:hover {
-  color: #c32026 ;
-}
-
-#bottom .widget {
-  margin-bottom: 0;
-}
-
-#myFooter {
-    background-color: #3c3d41;
-    color: white;
-    padding-top: 30px;
-    margin-bottom: 0px !important;
-   
-}
-
-#myFooter .footer-copyright {
-    background-color: #333333;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    text-align: center;
-}
-
-#myFooter .row {
+/*ESTILS PERFIL CARD*/
+.margincard{
+    margin-top: 30px;
     margin-bottom: 60px;
 }
 
-#myFooter .navbar-brand {
-    margin-top: 45px;
-    height: 65px;
+.fonscard{
+    background: url(http://wallpapercave.com/wp/NIAnj0Q.jpg);
+    background: cover;
 }
-
-#myFooter .footer-copyright p {
-    margin: 10px;
-    color: #ccc;
-}
-
-#myFooter ul {
-    list-style-type: none;
-    padding-left: 0;
-    line-height: 1.7;
-}
-
-#myFooter h5 {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    margin-top: 30px;
-}
-
-#myFooter h2 a{
-    font-size: 50px;
-    text-align: center;
-    color: #fff;
-}
-
-#myFooter a {
-    color: #d2d1d1;
-    text-decoration: none;
-}
-
-#myFooter a:hover,
-#myFooter a:focus {
-    text-decoration: none;
-    color: white;
-}
-
-#myFooter .social-networks {
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 16px;
-}
-
-#myFooter .social-networks a {
-    font-size: 32px;
-    color: #f9f9f9;
-    padding: 10px;
-    transition: 0.2s;
-}
-
-#myFooter .social-networks a:hover {
-    text-decoration: none;
-}
-
-#myFooter .facebook:hover {
-    color: #0077e2;
-}
-
-#myFooter .google:hover {
-    color: #ef1a1a;
-}
-
-#myFooter .twitter:hover {
-    color: #00aced;
-}
-
-#myFooter .btn {
-    color: white;
-    background-color: #b63926;
-    font-weight: bold;
-    border-radius: 20px;
-    border: none;
-    width: 150px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 10px;
-    line-height: 25px;
-}
-
-@media screen and (max-width: 767px) {
-    #myFooter {
-        text-align: center;
-    }
-}
-/*ESTILS PERFIL CARD*/
-
 
 .card {
     padding-top: 20px;
@@ -393,4 +292,56 @@
     color: white !important;
     font-weight: bold;
 }
+
+/*FORM EDITAR USUARI*/
+ .est {
+
+        background-color: #444;
+        background:url("https://images3.alphacoders.com/115/115129.jpg");
+        background-size: cover;       
+        width: 100%;        
+    }
+    .form-signin input[type="text"] {
+        margin-bottom: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .vertical-offset-100 {
+        padding-top: 100px;
+    }
+    .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    }
+    .panel {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+    nav{
+        margin-top: 0 !important;
+    }
+    .navbar{
+        margin-bottom: 0 !important;
+    }
 

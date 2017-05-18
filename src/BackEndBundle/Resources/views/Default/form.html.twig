@@ -1,0 +1,57 @@
+{% extends "BackEndBundle:Default:index.html.twig" %}
+{% block title %}{{ titol }}{% endblock %}
+{#     {% block page_content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                   
+                         <div class="content-backend">
+
+                            <h2 class="text-center">{{ titol }}</h2>
+                            {% for flashMessage in app.session.flashbag.get('notice') %}
+                                <div class="alert alert-{{ flashMessage.type }}">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="text-center">{{ flashMessage.msg }}</h4>
+                                </div>
+                            {% endfor %}
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-lg-push-4">                        
+                                {{ form_start(form, { 'attr': {'class': 'form-horizontal content-backend'} }) }}
+                                {{ form_widget(form)}}
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    {% endblock %} #}
+     {% block page_content %}
+
+    <div class="container-fluid est">
+                <div class="row vertical-offset-100">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">                                
+                                <div class="row-fluid user-row">
+                                    <img src="http://s11.postimg.org/7kzgji28v/logo_sm_2_mr_1.png" class="img-responsive" alt="Conxole Admin"/>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h2 class="text-center">{{ titol }}</h2>
+                            {% for flashMessage in app.session.flashbag.get('notice') %}
+                                <div class="alert alert-{{ flashMessage.type }}">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="text-center">{{ flashMessage.msg }}</h4>
+                                </div>
+                            {% endfor %}
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-lg-push-3">                        
+                                {{ form_start(form, { 'attr': {'class': 'form-horizontal content-backend'} }) }}
+                                {{ form_widget(form)}}
+                                {{ form_end(form) }}
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             {% endblock %}
