@@ -71,7 +71,7 @@ class RegistrationController extends Controller
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
-                    $url = $this->generateUrl('exchangeit_back_end_homepage');
+                    $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
 
