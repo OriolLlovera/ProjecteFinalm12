@@ -10,6 +10,7 @@ exchangeit_back_end_usuari_edit:
 exchangeit_back_end_usuari_delete:
     path:     /delete/{id}
     defaults: { _controller: BackEndBundle:Default:delete }
+
 #TAULA ADMIN
 exchangeit_back_end_usuari_edit_taula:
     path:     /edit-tabla/{id}
@@ -35,6 +36,12 @@ exchangeit_back_end_llistaIdiomes:
 exchangeit_back_end_llistaParaula:
     path:     /llistaParaula
     defaults: { _controller: BackEndBundle:Default:llistaParaula }
+
+#FILTRAR PARAULA
+exchangeit_back_end_filtrarparaula:
+    path:     /filtrarparaula
+    defaults: { _controller: BackEndBundle:Default:filtrarParaula }
+
 
 #---------------------------IDIOMA----------------------------
 
@@ -135,4 +142,3 @@ exchangeit_back_end_editarparaula:
 exchangeit_back_end_esborrarparaula:
     path:     /esborrar-paraula/{id}
     defaults: { _controller: BackEndBundle:Default:esborrarParaula }
-

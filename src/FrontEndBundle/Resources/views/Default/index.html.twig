@@ -1,86 +1,85 @@
 {% extends "FrontEndBundle:Default:base.html.twig" %}
 {% block title %}Inici{% endblock %}
 {% block content %}
-	<div class="slider">
-		<div class="container">
-			<div id="about-slider">
-				<div id="carousel-slider" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-				  	<ol class="carousel-indicators visible-xs">
-					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-slider" data-slide-to="1"></li>
-					    <li data-target="#carousel-slider" data-slide-to="2"></li>
-				  	</ol>
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="{{asset('public/frontend/images/slider_one.jpg')}}" class="img-responsive" alt=""> 
-					   </div>
-					   <div class="item">
-							<img src="{{asset('public/frontend/images/slider_two.jpg')}}" class="img-responsive" alt=""> 
-					   </div> 
-					   <div class="item">
-							<img src="{{asset('public/frontend/images/slider_three.jpg')}}" class="img-responsive" alt=""> 
-					   </div> 
-					</div>
-					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-						<i class="fa fa-angle-left"></i> 
-					</a>
-					<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-						<i class="fa fa-angle-right"></i> 
-					</a>
-				</div> <!--/#carousel-slider-->
-			</div><!--/#about-slider-->
-		</div>
-	</div>
+	<div class="container-fluid">
+        <div class="row"> 
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
 
-	 <section id="feature" >
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="{{asset('public/frontend/images/categorias.jpg')}}" alt="Categories" style="width:100%;">
+                  </div>
+                  <div class="item">
+                    <img src="{{asset('public/frontend/images/diccionario.jpg')}}" alt="Diccionari" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Següent</span>
+                </a>
+            </div>
+        </div>
+    </div>
+	<section id="feature" >
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>Les nostres especialitats</h2>
-                <p class="lead">Portem treballant en el sector de l'automòbil des de l'any 1975.</p>
+                <p class="lead">Portem treballant en la traducció d'idiomes des de l'any 2017.</p>
             </div>
             <div class="row">
                 <div class="features">
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-tint"></i>
-                            <h2>Neteja de vehicles</h2>
-                            <h3>Servei de neteja complet</h3>
+                            <i class="fa fa-language"></i>
+                            <h2>Traducció de textos</h2>
+                            <h3>Pots introduir un text que vulguis traduir.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-money"></i>
-                            <h2>Presupost a mesura</h2>
-                            <h3>Realitzem un presupost que s'adapti a tu</h3>
+                            <i class="fa fa-language"></i>
+                            <h2>Traducció de paraules</h2>
+                            <h3>Pots traduir les paraules que vulguis.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-wrench"></i>
-                            <h2>Revisions pre ITV</h2>
-                            <h3>Revisem el teu cotxe per deixar-lo perfecte</h3>
+                            <i class="fa fa-book"></i>
+                            <h2>Diccionari de vocabulari</h2>
+                            <h3>Pots consultar vocabulari al diccionari.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-paint-brush"></i>
-                            <h2>Pintura </h2>
-                            <h3>Disposem de taller de pintura</h3>
+                            <i class="fa fa-book"></i>
+                            <h2>Correcions de textos</h2>
+                            <h3>Altres usuaris poden traduir els teus textos.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-cogs"></i>
-                            <h2>Disseny Personalitzat</h2>
-                            <h3>Dissenys únics per a tu</h3>
+                            <i class="fa fa-comments-o"></i>
+                            <h2>Servei de missatgeria</h2>
+                            <h3>Envia missatges als teus contactes.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap">
-                            <i class="fa fa-heart"></i>
-                            <h2>Reparacions dedicades</h2>
-                            <h3>Reparem el teu vehicle en un moment</h3>
+                            <i class="fa fa-comments-o"></i>
+                            <h2>Agenda de contactes</h2>
+                            <h3>Porta una agenda amb contactes per poder contactar directament.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 </div><!--/.services-->
@@ -90,102 +89,53 @@
 	<section id="recent-works">
         <div class="container">
             <div class="center wow fadeInDown">
-                <h2>Reparacions recents</h2>
-                
+                <h2>Opcions per ajudar-te a aprendre idiomes</h2>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item1.png')}}" alt="">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/language-book.png')}}" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Peugeot GT7</a> </h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item1.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">The Oral Language Book</a> </h3>
+                                <p>Llibre de expressió oral en anglès.</p>
+                                <a class="preview" href="{{asset('public/frontend/images/language-book.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
                 </div>   
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item2.png')}}" alt="">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/cd-ruso.png')}}" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Audi Q7</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item2.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">CD Curs d'idioma en rus</a></h3>
+                                <p>Curs per aprende rus de "Planeta DeAgostini".</p>
+                                <a class="preview" href="{{asset('public/frontend/images/cd-ruso.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
                 </div> 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item3.png')}}" alt="">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/exchange-country.png')}}" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Toyota T1</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item3.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Intercanvi a altres països</a></h3>
+                                <p>Una bona oportunitat d'aprendre idiomes, és anar d'intercanvi a altres països per a conviure amb l'idioma que es voldrà aprendre.</p>
+                                <a class="preview" href="{{asset('public/frontend/images/exchange-country.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
                 </div>   
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item4.png')}}" alt="">
+                        <img class="img-responsive" src="{{asset('public/frontend/images/language-class.png')}}" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Volkswagen Scirocco </a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item4.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>   
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item5.png')}}" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Honda civic Cv3</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item5.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>   
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item6.png')}}" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Mini Cooper One</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item6.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div> 
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item7.png')}}" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">BMW Serie 1</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item7.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>   
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="{{asset('public/frontend/images/portfolio/recent/item8.png')}}" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Range Rover Evoque</a></h3>
-                                <p>Restauració de carrosseria i pintura</p>
-                                <a class="preview" href="{{asset('public/frontend/images/portfolio/full/item8.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Classes particulars</a></h3>
+                                <p>Les classes particulars són una bona manera d'aprendre idiomes amb constancia.</p>
+                                <a class="preview" href="{{asset('public/frontend/images/language-class.png')}}" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
@@ -200,35 +150,27 @@
                     <div class="skill">
                         <h2>Les nostres especialitats</h2>                        
                         <div class="progress-wrap">
-                            <h3>Revisions pre ITV</h3>
+                            <h3>Traduccions de textos</h3>
                             <div class="progress">
-                              <div class="progress-bar  color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
-                                <span class="bar-width">85%</span>
+                              <div class="progress-bar  color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+                                <span class="bar-width">95%</span>
                               </div>
 
                             </div>
                         </div>
                         <div class="progress-wrap">
-                            <h3>Pintura</h3>
+                            <h3>Diccionari online</h3>
                             <div class="progress">
-                              <div class="progress-bar color2" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-                               <span class="bar-width">95%</span>
+                              <div class="progress-bar color2" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                               <span class="bar-width">80%</span>
                               </div>
                             </div>
                         </div>
                         <div class="progress-wrap">
-                            <h3>Carrosseria</h3>
+                            <h3>Missatgeria</h3>
                             <div class="progress">
                               <div class="progress-bar color3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                 <span class="bar-width">80%</span>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="progress-wrap">
-                            <h3>Restauració de vehicles antics</h3>
-                            <div class="progress">
-                              <div class="progress-bar color4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                <span class="bar-width">90%</span>
                               </div>
                             </div>
                         </div>
@@ -251,11 +193,11 @@
                                 <div class="panel-body">
                                     <div class="media accordion-inner">
                                         <div class="pull-left">
-                                            <img class="img-responsive" src="{{asset('public/frontend/images/accordion1.png')}}">
+                                            <img class="img-responsive logo-mida" src="{{asset('public/frontend/images/logo2.png')}}">
                                         </div>
                                         <div class="media-body">
-                                             <h4>Taller reparacions</h4>
-                                             <p>Treballant en el sector des de 1975</p>
+                                             <h4>ExchangeIt</h4>
+                                             <p>Treballant en el sector des de 2017</p>
                                         </div>
                                     </div>
                                 </div>
@@ -265,14 +207,14 @@
                             <div class="panel-heading">
                               <h3 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
-                                  Innovació en disseny
+                                  Innovació en vocabulari
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                               </h3>
                             </div>
                             <div id="collapseTwo1" class="panel-collapse collapse">
                               <div class="panel-body">
-                                Estem al dia de els millors dissenys i estils per el teu vehicle.
+                                Estem al dia dels millors online i presencials d'idiomes.
                               </div>
                             </div>
                           </div>
@@ -287,7 +229,7 @@
                             </div>
                             <div id="collapseThree1" class="panel-collapse collapse">
                               <div class="panel-body">
-                                Disposem de maquinari d'ultima tecnologia per a una reparació al més alt nivell.
+                                Disposem de material d'última tecnologia per a una interacció al més alt nivell.
                               </div>
                             </div>
                           </div>

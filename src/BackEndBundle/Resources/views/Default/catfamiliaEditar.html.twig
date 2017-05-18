@@ -2,12 +2,12 @@
 {% block title %}Editar Categoria Família{% endblock %}
 {% block page_content %}
     <!-- Page Content -->
-    <div class="container">
+    <div class="container fons-diccionari">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <h1>EDITAR CATEGORIA FAMÍLIA</h1>
+                <h1 class="lletra-blanca">EDITAR CATEGORIA FAMÍLIA</h1>
             </div>
-            <div class="col-sm-12 col-lg-12 col-md-12">
+            <div class="col-sm-12 col-lg-12 col-md-12 boto-afegir">
                 <form method="POST" action="{{ path('exchangeit_back_end_editarcatfamilia', {'id':id}) }}">
                     <div class="form-group">
                         <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom" required value="{{nom}}" />

@@ -28,7 +28,6 @@ class catfamilia
      */
     private $nom;
 
-
     /**
     * @ORM\OneToMany(targetEntity="Paraula", mappedBy="catfamilia")
     */
@@ -36,7 +35,6 @@ class catfamilia
     public function __constructor() {
         $this->paraula = new ArrayCollection();
     }
-
 
     /**
      * Get id

@@ -1,1 +1,39 @@
-CONTACTE
+{% extends "FrontEndBundle:Default:base.html.twig" %}
+{% block title %}Contacte{% endblock %}
+{% block content %}
+<div class="map">
+</div>
+	<section id="contact-page">
+        <div class="container">
+            <div class="center estilespai">        
+                <h2>Contacte</h2>
+                <p class="lead">Envia el teu missatge per contactar amb nosaltres.</p>
+            </div> 
+            <div class="row contact-wrap"> 
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div id="sendmessage">El seu missatge ha sigut enviat correctament. Gràcies!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="nom" class="form-control" id="name" placeholder="Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="nom" id="email" placeholder="Correu electrònic" data-rule="email" data-msg="Please enter a valid email" required />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="assumpte" id="subject" placeholder="Assumpte" data-rule="minlen:4" data-msg="Si us plau escriu almenys 8 caràcters a l'assumpte." required />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Missatge"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Envia</button></div>
+                    </form>     
+                </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
+{% endblock %}

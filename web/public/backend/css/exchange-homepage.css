@@ -1,0 +1,128 @@
+/* Menú superior */
+ul, ol {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+}
+
+.nav li a {
+    background-color:#222;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+
+.nav li a:hover {
+    background-color:#434343;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
+
+ul {
+    z-index: 1;
+}
+
+/* Content */
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.navbar-inverse {
+    margin-bottom: 0;
+}
+
+.fons-diccionari {
+    background: url('../images/fonsparaula.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+.lletra-blanca {
+    color: white;
+}
+
+.container-diccionari {
+    margin: 1%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 15px;
+    background: url('../images/diccionario.jpg');
+    background-position: center;
+    background-size: 100%;
+
+}
+
+.capa-blanca {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1%;
+    border-radius: 15px;
+}
+
+.container-categories {
+    padding: 3%;
+    border: 1px solid black;
+    border-radius: 15px;
+    background: url('../images/categorias.jpg');
+    background-position: center;
+    background-size: 100%;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1% !important;
+}
+
+.boto-afegir {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.icones-crud {
+    text-align: center;
+}
+
+.mida-form form div.form-group .form-control {
+    width: 40%;
+    margin: auto;
+}
+
+ul.paraules-inline label, ul.paraules-inline li {
+    display: inline;
+}
+
+.botons-llista-idioma {
+    width: 10%;
+}
+
+.nom-llista-idioma {
+    width: 80%;
+}
+
+.llista-idioma {
+    background: rgba(255,255,255,0.5);
+}
+
+/* Footer */
+footer {
+    margin: 50px 0;
+}

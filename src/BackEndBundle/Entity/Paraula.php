@@ -51,13 +51,15 @@ class Paraula
      */
     private $definicio;
 
+
     /**
-    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="traduccioparaula")
-    */
-    protected $traduccioparaula;
-    public function __constructor() {
-        $this->traduccioparaula = new ArrayCollection();
-    }
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="idioma",inversedBy="paraula")
+     * @ORM\JoinColumn(name="idioma", referencedColumnName="id")
+     */
+    private $idioma;
+
 
     /**
      * Get id
@@ -214,46 +216,29 @@ class Paraula
         return $this->categoriaFamilia;
     }
     
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add traduccioparaula
+   /**
+     * Set idioma
      *
-     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     * @param \BackEndBundle\Entity\idioma $idioma
      *
-     * @return traduccioparaula
+     * @return paraula
      */
-    public function addTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    public function setIdioma(\BackEndBundle\Entity\idioma $idioma = null)
     {
-        $this->traduccioparaula[] = $traduccioparaula;
+        $this->idioma = $idioma;
 
         return $this;
     }
 
     /**
-     * Remove traduccioparaula
+     * Get idioma
      *
-     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     * @return \BackEndBundle\Entity\idioma
      */
-    public function removeTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    public function getIdioma()
     {
-        $this->traduccioparaula->removeElement($traduccioparaula);
-    }
-
-    /**
-     * Get traduccioparaula
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTraduccioparaula()
-    {
-        return $this->traduccioparaula;
+        return $this->idioma;
     }
 
 }
