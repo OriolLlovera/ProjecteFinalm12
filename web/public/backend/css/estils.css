@@ -1,3 +1,10 @@
+/*Imatge Inici Fons*/
+.fonsback{
+    background: url(http://wallpapercave.com/wp/NIAnj0Q.jpg);
+    background: cover;
+    width: 100%;
+}
+
 .alturaformedit{
     height: 100%;
      overflow:hidden;

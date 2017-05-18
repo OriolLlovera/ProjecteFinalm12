@@ -102,7 +102,7 @@
 
               <li>
 
-               <a href="{{path('exchangeit_back_end_usuari_edit',{'id':app.user.id})}}"><b> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</b></a>
+               <a href="{{path('fos_user_profile_show',{'id':app.user.id})}}"><b> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</b></a>
 
              </li>
 
@@ -137,6 +137,15 @@
 {% endblock %}
 
 {% block page_content %}
+  <div class="container-fluid fonsback">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <img src="{{asset('public/backend/images/Logo2.png')}}" width="200px" height="200px">  
+          <h1 class="text-right">Benvingut a ExchangeIt</h1>     
+      </div>      
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -155,9 +164,7 @@
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <!-- Tab content goes here -->
-                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
-                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
-                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aquí podràs millorar els teus coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diàries de treball.
               </div>
             </div>
           </div> 
@@ -174,9 +181,7 @@
 
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
-                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
-                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
-                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+               Exchange es una nueva empresa que trabaja en el sector del aprendizaje y que tiene como finalidad ayudar a todas aquellas personas que quieren aprender un nuevo idioma a través de gente nativa. Aquí podrás mejorar tus conocimientos sobre la lengua de forma totalmente gratuïta.La nuestra plataforma garantiza una mejora en tus conocimientos dedicando unas horas diarias de trabajo.
               </div>
             </div>
           </div>
@@ -193,9 +198,7 @@
 
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="panel-body">
-                ExchangeIt és una nova empresa que treballa en el sector de l'aprenentatge i que te com a finalitat ajudar
-                a totes aquelles persones que volen aprendre un nou idioma a través de gent nativa. Aqui podràs millorar els teus
-                coneixements sobre la llengua de forma totalment gratuïta.La nostra plataforma garanteix una millora en els teus coneixements dedicant unes hores diaries de treball.
+                Exchange is a new company working in the field of learning and aims to help those who want to learn a new language through native people. Here you can improve your knowledge of the language completely platform ensures our gratuïta.La improve your knowledge devoting a few hours a day of work.
               </div>
             </div>
           </div>
@@ -233,6 +236,7 @@
       </div> <!-- / .col-md-8 -->
     </div> <!--/ .row -->
   </div> <!-- end sidetab container -->
+</div> 
 {% endblock %}
 
 <!-- Footer -->
