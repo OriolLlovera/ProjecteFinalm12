@@ -5,10 +5,10 @@
     <div class="container fons-diccionari">
         <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
-                <h1 class="lletra-blanca">AFEGIR PARAULA</h1>
+                <h1 class="lletra-blanca text-center">AFEGIR PARAULA</h1>
             </div>
-            <div class="col-sm-12 col-lg-12 col-md-12">
-              <form method="POST" action="{{ path('exchangeit_back_end_afegirparaula') }}">
+            <div class="col-sm-12 col-lg-12 col-md-12 boto-afegir mida-form">
+                <form method="POST" action="{{ path('exchangeit_back_end_afegirparaula') }}">
                     <div class="form-group">
                         <input type="text" name="paraula" class="form-control" id="paraula" placeholder="Paraula" required value="{{paraula}}" />
                         <div class="validation"></div>

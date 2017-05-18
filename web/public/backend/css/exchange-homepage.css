@@ -59,14 +59,6 @@ body {
     width: 100%;
 }
 
-.fons-gramatical {
-    background: url('../images/fonsgramatical.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-}
-
 .lletra-blanca {
     color: white;
 }
@@ -89,22 +81,29 @@ body {
 }
 
 .container-categories {
-    margin: 1%;
     padding: 3%;
     border: 1px solid black;
     border-radius: 15px;
     background: url('../images/categorias.jpg');
     background-position: center;
     background-size: 100%;
-
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1% !important;
 }
 
 .boto-afegir {
     padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .icones-crud {
     text-align: center;
+}
+
+.mida-form form div.form-group .form-control {
+    width: 30%;
+    margin: auto;
 }
 
 ul.paraules-inline label, ul.paraules-inline li {
@@ -117,6 +116,10 @@ ul.paraules-inline label, ul.paraules-inline li {
 
 .nom-llista-idioma {
     width: 80%;
+}
+
+.llista-idioma {
+    background: rgba(255,255,255,0.5);
 }
 
 /* Footer */

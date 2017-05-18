@@ -1,11 +1,11 @@
 {% extends "BackEndBundle:Default:index.html.twig " %}
 {% block title %}Llista Categories Gramaticals{% endblock %}
 {% block page_content %}
-    <div class="container fons-gramatical">
-        <h4 class="text-center">{{ titol }}</h4>
+    <div class="container fons-diccionari">
+        <h1 class="text-center lletra-blanca">{{ titol }}</h1>
         <div class="row">
             {% for category in catgramatical %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="container-categories">
                         <label>Nom:</label>
                         <span>{{ category.nom|upper }}</span><br>
