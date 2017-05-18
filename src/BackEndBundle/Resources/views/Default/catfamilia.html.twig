@@ -2,13 +2,11 @@
 {% block title %}Afegir Categoria Família{% endblock %}
 {% block page_content %}
     <!-- Page Content -->
-    <div class="container">
+    <div class="container fons-diccionari">
         <div class="row">
-            <div class="col-sm-12 col-lg-12 col-md-12">
-                <h1>AFEGIR CATEGORIA FAMÍLIA</h1>
-            </div>
-            <div class="col-sm-12 col-lg-12 col-md-12">
-              <form method="POST" action="{{ path('exchangeit_back_end_afegircatfamilia') }}">
+            <div class="col-sm-12 col-lg-12 col-md-12 mida-form boto-afegir">
+                <h1 class="text-center lletra-blanca">AFEGIR CATEGORIA FAMÍLIA</h1>
+                <form method="POST" action="{{ path('exchangeit_back_end_afegircatfamilia') }}">
                     <div class="form-group">
                         <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom" required value="{{nom}}" />
                         <div class="validation"></div>

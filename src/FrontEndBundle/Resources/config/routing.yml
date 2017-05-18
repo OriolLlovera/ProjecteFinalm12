@@ -6,7 +6,7 @@ exchangeit_front_end_serveis:
     path:     /serveis
     defaults: { _controller: FrontEndBundle:Default:serveis }
 
-exchangeit_front_end_contact:
+exchangeit_front_end_contacte:
     path:     /contacte
     defaults: { _controller: FrontEndBundle:Default:contacte }
 

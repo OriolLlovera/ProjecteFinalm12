@@ -1,10 +1,9 @@
 {% extends "BackEndBundle:Default:index.html.twig " %}
 
 {% block title %}Llista usuaris{% endblock %}
-
-    {% block page_content %}
-
+{% block page_content %}
 <div class="container">
+
 
 <div class="container">
   <br>
@@ -17,23 +16,13 @@
               </div>
 {% endfor %}
     </div>
+
     <div class="row">
-
-        <div class="col-xs-8 col-sm-4 col-md-4 col-lg-2">
-
-      
-
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtre per nom...">
-
-       
-
-        
-
-    
-
-        </div>
-
+      <div class="col-xs-8 col-sm-4 col-md-4 col-lg-2">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filtre per paraula...">
+      </div>
     </div>
+
     
 
 </div>
@@ -147,54 +136,32 @@
 
 </div>
 
+
 {% block javascripts %}
 
    <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
-    function myFunction() {
-
-  // Declare variables
-
-  var input, filter, table, tr, td, i;
-
-  input = document.getElementById("myInput");
-
-  filter = input.value.toUpperCase();
-
-  table = document.getElementById("myTable");
-
-  tr = table.getElementsByTagName("tr");
-
-
-
-  // Loop through all table rows, and hide those who don't match the search query
-
-  for (i = 0; i < tr.length; i++) {
-
-    td = tr[i].getElementsByTagName("td")[1];
-
-    if (td) {
-
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-
-        tr[i].style.display = "";
-
-    } else {
-
-        tr[i].style.display = "none";
-
-    }
-
-}
-
-}
-
-}
-
-</script>
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+  </script>
 
 {% endblock %}
-
-
 
 {% endblock %}

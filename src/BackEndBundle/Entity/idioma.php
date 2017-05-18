@@ -28,13 +28,12 @@ class idioma
      */
     private $nom;
 
-
     /**
-    * @ORM\OneToMany(targetEntity="traduccioparaula", mappedBy="idioma")
+    * @ORM\OneToMany(targetEntity="Paraula", mappedBy="catgramatical")
     */
-    protected $traduccioparaula;
+    protected $paraula;
     public function __constructor() {
-        $this->traduccioparaula = new ArrayCollection();
+        $this->paraula = new ArrayCollection();
     }
 
 
@@ -72,47 +71,49 @@ class idioma
         return $this->nom;
     }
 
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->traduccioparaula = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->paraula = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add traduccioparaula
+     * Add Paraula
      *
-     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     * @param \BackEndBundle\Entity\paraula $paraula
      *
-     * @return traduccioparaula
+     * @return catgramatical
      */
-    public function addTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    public function addParaula(\BackEndBundle\Entity\paraula $paraula)
     {
-        $this->traduccioparaula[] = $traduccioparaula;
+        $this->paraula[] = $paraula;
 
         return $this;
     }
 
     /**
-     * Remove traduccioparaula
+     * Remove Paraula
      *
-     * @param \BackEndBundle\Entity\traduccioparaula $traduccioparaula
+     * @param \BackEndBundle\Entity\paraula $paraula
      */
-    public function removeTraduccioparaula(\BackEndBundle\Entity\traduccioparaula $traduccioparaula)
+    public function removeParaula(\BackEndBundle\Entity\paraula $paraula)
     {
-        $this->traduccioparaula->removeElement($traduccioparaula);
+        $this->paraula->removeElement($paraula);
     }
 
     /**
-     * Get traduccioparaula
+     * Get Paraula
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTraduccioparaula()
+    public function getParaula()
     {
-        return $this->traduccioparaula;
+        return $this->paraula;
     }
+
 
 
 }
